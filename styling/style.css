@@ -1,0 +1,54 @@
+/* General styles */
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f5f5f5;
+  margin: 0;
+  padding: 0;
+}
+
+header {
+  /* Upper navigation styles */
+  /* Navigation bar styles */
+}
+header .uppernav {
+  background-color: #D81B1B;
+  color: #fff;
+  padding: 10px 0;
+}
+header .uppernav .container {
+  margin: auto;
+  max-width: 1000px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+header .uppernav .logo img {
+  height: 40px;
+}
+header .uppernav .search-bar input[type=text] {
+  padding: 6px;
+  border: 1px solid #fff;
+  border-radius: 5px;
+}
+header .uppernav .search-bar button {
+  cursor: pointer;
+}
+header nav {
+  background-color: rgb(10, 10, 10);
+  display: flex;
+  gap: 1px;
+}
+header nav a {
+  padding: 10px;
+  color: #fff;
+  text-decoration: none;
+}
+header nav a:hover {
+  background-color: #333;
+}
+header nav .current-page {
+  background-color: #9E0909;
+}
+header nav .current-page:hover {
+  background-color: #ba2727;
+}/*# sourceMappingURL=style.css.map */

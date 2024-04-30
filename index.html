@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shah Rafiq General Trading</title>
+    <!-- this is where i'll add the icon for the website -->
+    <link rel="shortcut icon" type="image/x-icon" href="images/logo.png"/>
+    <!-- this is link to stylesheet -->
+    <link rel="stylesheet" href="./styling/style.css">
+</head>
+
+<body>
+    <header>
+        <div class="uppernav">
+            <div class="container">
+                <!-- Logo -->
+                <div class="logo">
+                    <img src="images/logo.png" alt="SRGT Logo">
+                </div>
+                <!-- Search Bar -->
+                <div class="search-bar">
+                    <input type="text" placeholder="Search...">
+                    <button type="submit"></button>
+                </div>
+                <!-- Sidebar toggle button -->
+                <div class="sidebar-toggle">
+                    <button onclick="toggleSidebar()">☰</button>
+                </div>
+            </div>
+        </div>
+        
+        <nav>
+            <a href="./index.html" class="current-page">Home</a>
+            <a href="./pages/about.html">About Us</a>
+            <a href="./pages/product.html">Products</a>
+            <a href="./pages/product.html">Contact</a>
+        </nav>
+    </header>
+    <main>
+        <!-- Sidebar -->
+        <div id="sidebar" class="sidebar">
+            <div class="sidebar-content">
+                <h3>Languages</h3>
+                <ul>
+                    <li><button onclick="switchLanguage('en')">English</button></li>
+                    <li><button onclick="switchLanguage('ar')">Arabic</button></li>
+                    <!-- Add more options here -->
+                </ul>
+            </div>
+        </div>
+
+        <!-- Content Sections -->
+        <div id="content">
+            <!-- Your content here -->
+            <h1 id="welcome-message">Hello</h1>
+        </div>
+        <script src="./programming/language-switcher.js"></script>
+    </main>
+</body>
+</html>
