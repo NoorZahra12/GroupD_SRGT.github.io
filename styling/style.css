@@ -13,25 +13,47 @@ header {
 header .uppernav {
   background-color: #D81B1B;
   color: #fff;
-  padding: 10px 0;
+  padding: 10px 15px;
 }
 header .uppernav .container {
   margin: auto;
-  max-width: 1000px;
+  max-width: 1500px;
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
-header .uppernav .logo img {
+header .uppernav .container .logo img {
   height: 40px;
 }
-header .uppernav .search-bar input[type=text] {
-  padding: 6px;
-  border: 1px solid #fff;
-  border-radius: 5px;
+header .uppernav #search-form {
+  height: 25px;
+  display: flex;
 }
-header .uppernav .search-bar button {
+header .uppernav #search-form input {
+  float: left;
+  padding: 10px;
+}
+header .uppernav #search-form button {
+  float: left;
+  background-color: #111;
+  padding: 5px 15px;
   cursor: pointer;
+}
+header .uppernav #search-form button img {
+  width: 15px;
+}
+header .uppernav #rightnav {
+  display: flex;
+  gap: 15px;
+  width: 100px;
+}
+header .uppernav #rightnav #Cart {
+  background-color: #111;
+  color: #fff;
+  padding: 0px 18px;
+}
+header .uppernav #rightnav #sidebar-toggle {
+  font-size: x-large;
 }
 header nav {
   background-color: rgb(10, 10, 10);
@@ -51,4 +73,8 @@ header nav .current-page {
 }
 header nav .current-page:hover {
   background-color: #ba2727;
+}
+
+main {
+  padding: 10px;
 }/*# sourceMappingURL=style.css.map */

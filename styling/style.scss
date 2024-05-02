@@ -11,25 +11,45 @@ header{
     .uppernav {
         background-color: #D81B1B;
         color: #fff;
-        padding: 10px 0;
+        padding: 10px 15px;
         .container {
             margin: auto;
-            max-width: 1000px;
+            max-width: 1500px;
             display: flex;
             justify-content: space-between;
             align-items: center;
-        }
-        .logo img {
-            height: 40px;
-        }
-        .search-bar {
-            input[type="text"] {
-                padding: 6px;
-                border: 1px solid #fff;
-                border-radius: 5px;
+            .logo img {
+                height: 40px;
             }
-            button {
+        }
+        #search-form{
+            height: 25px;
+            display: flex;
+            input{
+                float: left;
+                padding: 10px;
+            }
+            button{
+                float: left;
+                background-color: #111;
+                padding: 5px 15px;
                 cursor: pointer;
+                img{
+                    width: 15px;
+                }
+            }
+        }
+        #rightnav{
+            display: flex;
+            gap: 15px;
+            width: 100px;
+            #Cart{
+                background-color: #111;
+                color: #fff;
+                padding: 0px 18px;
+            }
+            #sidebar-toggle{
+                font-size: x-large;
             }
         }
     }
@@ -54,4 +74,12 @@ header{
             }
         }
     }
+}
+
+main{
+    padding: 10px;
+}
+
+footer{
+
 }

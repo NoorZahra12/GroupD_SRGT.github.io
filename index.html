@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Shah Rafiq General Trading</title>
     <!-- this is where i'll add the icon for the website -->
-    <link rel="shortcut icon" type="image/x-icon" href="images/logo.png"/>
+    <link rel="shortcut icon" type="image/x-icon" href="images/logoicon.png"/>
     <!-- this is link to stylesheet -->
     <link rel="stylesheet" href="./styling/style.css">
 </head>
@@ -18,14 +18,17 @@
                 <div class="logo">
                     <img src="images/logo.png" alt="SRGT Logo">
                 </div>
+
                 <!-- Search Bar -->
-                <div class="search-bar">
-                    <input type="text" placeholder="Search...">
-                    <button type="submit"></button>
-                </div>
+                <form id="search-form">
+                    <input type="text" placeholder="Search.." name="search">
+                    <button type="submit"><img src="./images/searchicon.png" alt="Search icon"></button>
+                </form>
+
                 <!-- Sidebar toggle button -->
-                <div class="sidebar-toggle">
-                    <button onclick="toggleSidebar()">☰</button>
+                <div id="rightnav">
+                    <button id="Cart">Cart</button>
+                    <div id="sidebar-toggle"onclick="toggleSidebar()">☰</div>
                 </div>
             </div>
         </div>
@@ -37,24 +40,23 @@
             <a href="./pages/product.html">Contact</a>
         </nav>
     </header>
+
     <main>
         <!-- Sidebar -->
-        <div id="sidebar" class="sidebar">
-            <div class="sidebar-content">
-                <h3>Languages</h3>
-                <ul>
-                    <li><button onclick="switchLanguage('en')">English</button></li>
-                    <li><button onclick="switchLanguage('ar')">Arabic</button></li>
-                    <!-- Add more options here -->
-                </ul>
-            </div>
-        </div>
+        <aside>
+            <h3>Languages</h3>
+            <ul>
+                <li><button onclick="switchLanguage('en')">English</button></li>
+                <li><button onclick="switchLanguage('ar')">Arabic</button></li>
+                <!-- Add more options here -->
+            </ul>
+        </aside>
 
         <!-- Content Sections -->
-        <div id="content">
+        <section id="hero">
             <!-- Your content here -->
-            <h1 id="welcome-message">Hello</h1>
-        </div>
+            <h1 id="welcome-message"></h1>
+        </section>
         <script src="./programming/language-switcher.js"></script>
     </main>
 </body>
