@@ -9,12 +9,12 @@ function switchLanguage(lang) {
     loadContent(lang)
         .then(content => {
             // Get elements with language-specific content
-            var welcomeMessage = document.getElementById('welcome-message');
-            var intro = document.getElementById('intro');
+            var heroTitle = document.getElementById('hero-title');
+            var heroMessage = document.getElementById('hero-message');
             
             // Update content based on loaded data
-            welcomeMessage.textContent = content.welcomeMessage;
-            intro.textContent = content.intro;
+            heroTitle.textContent = content['hero-title'];
+            heroMessage.textContent = content['hero-message'];
         })
         .catch(error => console.error('Error loading content:', error));
 }
