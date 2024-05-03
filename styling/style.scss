@@ -77,9 +77,22 @@ header{
 }
 
 main{
-    padding: 10px;
+    margin: auto;
+    max-width: 1200px;
+    display: flex;
+    flex-direction: column;
+    #hero{
+        height: 500px;
+        background-color: #7f6;
+        width: 100%;
+        #hero-wrapper{
+            background-color: #f56;
+            max-width: 500px;
+            float: left;
+        }
+    }
 }
 
-footer{
+// footer{
 
-}
+// }

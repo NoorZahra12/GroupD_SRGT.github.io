@@ -76,5 +76,18 @@ header nav .current-page:hover {
 }
 
 main {
-  padding: 10px;
+  margin: auto;
+  max-width: 1200px;
+  display: flex;
+  flex-direction: column;
+}
+main #hero {
+  height: 500px;
+  background-color: #7f6;
+  width: 100%;
+}
+main #hero #hero-wrapper {
+  background-color: #f56;
+  max-width: 500px;
+  float: left;
 }/*# sourceMappingURL=style.css.map */
