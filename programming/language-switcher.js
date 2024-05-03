@@ -4,17 +4,20 @@ function loadContent(lang) {
         .then(response => response.json());
 }
 
-// Function to switch language
+// Function created to switch language
 function switchLanguage(lang) {
     loadContent(lang)
         .then(content => {
-            // Get elements with language-specific content
-            var heroTitle = document.getElementById('hero-title');
-            var heroMessage = document.getElementById('hero-message');
-            
-            // Update content based on loaded data
-            heroTitle.textContent = content['hero-title'];
-            heroMessage.textContent = content['hero-message'];
+            // Iterate over the keys (variables) in the JSON object
+            for (let key in content) {
+                // Get elements with language-specific content
+                var langswitch = document.getElementById(key);
+                
+                // Update content based on loaded data
+                if (langswitch) {
+                    langswitch.textContent = content[key];
+                }
+            }
         })
         .catch(error => console.error('Error loading content:', error));
 }

@@ -78,17 +78,18 @@ header{
 
 main{
     margin: auto;
-    max-width: 1200px;
+    max-width: 1500px;
     display: flex;
     flex-direction: column;
     #hero{
         height: 500px;
         background-color: #7f6;
         width: 100%;
-        #hero-wrapper{
+        article{
             background-color: #f56;
             max-width: 500px;
             float: left;
+            margin-top: 20%;
         }
     }
 }
