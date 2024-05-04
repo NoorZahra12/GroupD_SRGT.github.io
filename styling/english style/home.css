@@ -1,0 +1,109 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+header {
+  /* Upper navigation styles */
+  /* Navigation bar styles */
+}
+header .uppernav {
+  background-color: #D81B1B;
+  color: #fff;
+  padding: 10px 15px;
+}
+header .uppernav .container {
+  margin: auto;
+  max-width: 1500px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+header .uppernav .container .logo img {
+  height: 40px;
+}
+header .uppernav #search-form {
+  height: 25px;
+  display: flex;
+}
+header .uppernav #search-form input {
+  float: left;
+  padding: 10px;
+}
+header .uppernav #search-form button {
+  float: left;
+  background-color: #111;
+  padding: 5px 15px;
+  cursor: pointer;
+}
+header .uppernav #search-form button img {
+  width: 15px;
+}
+header .uppernav #rightnav {
+  display: flex;
+  gap: 15px;
+  width: 100px;
+}
+header .uppernav #rightnav #Cart {
+  background-color: #111;
+  color: #fff;
+  padding: 0px 18px;
+}
+header .uppernav #rightnav #sidebar-toggle {
+  font-size: x-large;
+}
+header nav {
+  background-color: rgb(10, 10, 10);
+  display: flex;
+  gap: 1px;
+}
+header nav a {
+  padding: 10px;
+  color: #fff;
+  text-decoration: none;
+}
+header nav a:hover {
+  background-color: #333;
+}
+header nav .current-page {
+  background-color: #9E0909;
+}
+header nav .current-page:hover {
+  background-color: #ba2727;
+}
+
+footer {
+  background-color: rgb(0, 0, 14);
+}
+
+main {
+  margin: auto;
+  max-width: 1300px;
+  display: flex;
+  flex-direction: column;
+}
+main #hero {
+  background-color: #456de9;
+  display: flex;
+  width: 100%;
+  height: -moz-fit-content;
+  height: fit-content;
+  align-items: center;
+}
+main #hero article:first-child {
+  padding: 20px;
+}
+main #hero article #hero-title {
+  width: -moz-fit-content;
+  width: fit-content;
+  background-image: linear-gradient(45deg, red, purple, blue);
+  -webkit-background-clip: text;
+          background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-size: 2em;
+}
+main #hero article img {
+  max-width: 100%;
+  height: auto;
+}/*# sourceMappingURL=home.css.map */

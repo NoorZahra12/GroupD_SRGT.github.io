@@ -1,0 +1,31 @@
+@import '_general';
+
+main{
+    margin: auto;
+    max-width: 1300px;
+    display: flex;
+    flex-direction: column;
+    #hero{
+        background-color: #456de9;
+        display: flex;
+        width: 100%;
+        height: fit-content;
+        align-items: center;
+        article{
+            &:first-child{
+                padding: 20px;
+            }
+            #hero-title{
+                width: fit-content;
+                background-image: linear-gradient(45deg, red, purple, blue);
+                background-clip: text;
+                -webkit-text-fill-color: transparent;
+                font-size: 2em;
+            }
+            img{
+                max-width: 100%;
+                height: auto;
+            }
+        }
+    }
+}

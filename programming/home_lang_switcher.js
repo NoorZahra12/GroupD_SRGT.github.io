@@ -1,6 +1,8 @@
+
+
 // Load content based on language
 function loadContent(lang) {
-    return fetch(`../content_lang_files/content-${lang}.json`)
+    return fetch(`../content_lang_files/home-${lang}.json`)
         .then(response => response.json());
 }
 

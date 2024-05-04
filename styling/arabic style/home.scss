@@ -9,11 +9,16 @@ main{
         height: 500px;
         background-color: #7f6;
         width: 100%;
+        display: flex;
+        justify-content: center;
         article{
+            width: 50%;
             background-color: #f56;
-            max-width: 500px;
-            float: left;
+            float: right;
             margin-top: 20%;
+        }
+        img{
+            object-fit: contain;
         }
     }
 }
