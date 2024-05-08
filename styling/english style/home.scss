@@ -2,7 +2,7 @@
 
 main{
     margin: auto;
-    max-width: 1300px;
+    max-width: 1000px;
     padding: 20px;
     display: flex;
     flex-direction: column;
@@ -13,12 +13,14 @@ main{
         flex-direction: row;
         justify-content: space-around;
         padding: 20px 0 50px 0;
+        gap: 50px;
         article {
             align-self: center;
             width: 400px;            
             &:first-child{
                 flex: 1 0 200px;
                 width: 50%;
+                padding: 10px;
             }
             &:last-child{
                 width: 50%;
@@ -28,7 +30,7 @@ main{
                 background-image: linear-gradient(45deg, red, purple, blue);
                 background-clip: text;
                 -webkit-text-fill-color: transparent;
-                font-size: 2em;
+                font-size: 3em;
             }
             img{
                 max-width: 100%;
@@ -41,15 +43,55 @@ main{
         text-align: center;
         font-weight: bold;
         #welcome2srgt{
-            font-size: medium;
+            font-size: large;
         }
         #onlinestore{
             margin: 5px;
-            font-size: x-large;
+            font-size: xx-large;
         }
         #magic3words{
             font-weight: normal;
-            font-size: x-small;
+            font-size: small;
+        }
+    }
+    #four-services{
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
+        gap: 20px;
+        article{
+            background-color: rgba(0, 0, 0, 0.50);
+            height: 150px;
+            color: white;
+            background-size: cover;
+            object-fit: cover;
+            padding: 20px;
+            &:nth-child(1){
+                background-image: url(../../images/dp.png);
+            }
+            &:nth-child(2){
+                background-image: url(../../images/ep.png);
+            }
+            &:nth-child(3){
+                background-image: url(../../images/te.png);
+            }
+            &:nth-child(4){
+                background-image: url(../../images/sp.png);
+            }
+        }
+    }
+    #featured-products{
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 10px;
+        padding: 20px;
+        article{
+            padding: 10px;
+            border: 1px solid black;
+            #priiice{
+                display: flex;
+                justify-content: space-between;
+                height: 35px;
+            }
         }
     }
 }

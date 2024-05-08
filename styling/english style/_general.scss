@@ -14,14 +14,10 @@ header{
         padding: 10px 15px;
         .container {
             margin: auto;
-            max-width: 1500px;
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: space-between;
-            align-items: center;
+            max-width: 1100px;
             gap: 10px;
                 .logo {
-                    flex: 0;
+                    width: fit-content;
                     margin-right: auto;
                     img {
                         height: 40px;
@@ -73,6 +69,7 @@ header{
     nav {
         background-color: rgb(10, 10, 10);
         display: flex;
+        flex-wrap: wrap;
         gap: 1px;
         a {
             padding: 10px;
@@ -100,4 +97,12 @@ button{
 
 footer{
     background-color: rgb(00, 00, 14);
+}
+
+
+@media (1000px < width){
+    nav{
+        justify-content: center;
+        padding-right: 600px;
+    }
 }
