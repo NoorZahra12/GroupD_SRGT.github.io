@@ -5,14 +5,12 @@ main{
     max-width: 1500px;
     display: flex;
     flex-direction: column;
-    #hero{
-        height: 500px;
-        background-color: #7f6;
-        width: 100%;
+    #hero {
         display: flex;
-        justify-content: center;
-        article{
-            width: 50%;
+        flex-wrap: wrap; // Make the items wrap when they exceed the width
+        
+        article {
+            width: 150px; // Set a fixed width for the articles      
             background-color: #f56;
             float: right;
             margin-top: 20%;

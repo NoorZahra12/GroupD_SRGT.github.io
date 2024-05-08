@@ -3,17 +3,25 @@
 main{
     margin: auto;
     max-width: 1300px;
+    padding: 20px;
     display: flex;
     flex-direction: column;
-    #hero{
-        background-color: #456de9;
+    #hero {
         display: flex;
+        flex-wrap: wrap; // Make the items wrap when they exceed the width
         width: 100%;
-        height: fit-content;
-        align-items: center;
-        article{
+        flex-direction: row;
+        justify-content: space-around;
+        padding: 20px 0 50px 0;
+        article {
+            align-self: center;
+            width: 400px;            
             &:first-child{
-                padding: 20px;
+                flex: 1 0 200px;
+                width: 50%;
+            }
+            &:last-child{
+                width: 50%;
             }
             #hero-title{
                 width: fit-content;
@@ -26,6 +34,22 @@ main{
                 max-width: 100%;
                 height: auto;
             }
+        }
+    }
+    #welcome-section{
+        padding: 50px;
+        text-align: center;
+        font-weight: bold;
+        #welcome2srgt{
+            font-size: medium;
+        }
+        #onlinestore{
+            margin: 5px;
+            font-size: x-large;
+        }
+        #magic3words{
+            font-weight: normal;
+            font-size: x-small;
         }
     }
 }

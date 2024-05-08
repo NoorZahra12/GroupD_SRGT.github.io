@@ -2,6 +2,8 @@ body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
+    max-width: 100%;
+    overflow-x: hidden;
 }
 
 header{
@@ -14,43 +16,58 @@ header{
             margin: auto;
             max-width: 1500px;
             display: flex;
+            flex-wrap: wrap;
             justify-content: space-between;
             align-items: center;
-            .logo img {
-                height: 40px;
-            }
-        }
-        #search-form{
-            height: 25px;
-            display: flex;
-            input{
-                float: left;
-                padding: 10px;
-            }
-            button{
-                float: left;
-                background-color: #111;
-                padding: 5px 15px;
-                cursor: pointer;
-                img{
-                    width: 15px;
+            gap: 10px;
+                .logo {
+                    flex: 0;
+                    margin-right: auto;
+                    img {
+                        height: 40px;
+                    }
+                }
+                #search-form{
+                    margin: auto;
+                    max-width: 300px;
+                    min-width: 100px;
+                    height: 25px;
+                    display: flex;
+                    input{
+                        min-width: 100px;
+                        flex: 1 1 auto;
+                        float: left;
+                        padding: 10px;
+                    }
+                    button{
+                        flex: 1 1 auto;
+                        float: left;
+                        background-color: #111;
+                        padding: 5px 15px;
+                        cursor: pointer;
+                        img{
+                            width: 15px;
+                        }
+                    }
+                }
+                
+                #rightnav{
+                    flex: 0 1 auto;
+                    display: flex;
+                    gap: 15px;
+                    width: 100px;
+                    margin-left: auto;
+                    #Cart{
+                        background-color: #111;
+                        color: #fff;
+                        padding: 0px 18px;
+                    }
+                    #sidebar-toggle{
+                        font-size: x-large;
+                    }
                 }
             }
         }
-        #rightnav{
-            display: flex;
-            gap: 15px;
-            width: 100px;
-            #Cart{
-                background-color: #111;
-                color: #fff;
-                padding: 0px 18px;
-            }
-            #sidebar-toggle{
-                font-size: x-large;
-            }
-        }
-    }
 
     /* Navigation bar styles */
     nav {
@@ -72,6 +89,13 @@ header{
             }
         }
     }
+}
+
+button{
+    background-color: red;
+    color: white;
+    padding: 7px;
+    font-size: small;
 }
 
 footer{

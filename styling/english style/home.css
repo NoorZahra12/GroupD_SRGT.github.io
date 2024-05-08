@@ -2,6 +2,8 @@ body {
   font-family: Arial, sans-serif;
   margin: 0;
   padding: 0;
+  max-width: 100%;
+  overflow-x: hidden;
 }
 
 header {
@@ -17,40 +19,54 @@ header .uppernav .container {
   margin: auto;
   max-width: 1500px;
   display: flex;
+  flex-wrap: wrap;
   justify-content: space-between;
   align-items: center;
+  gap: 10px;
+}
+header .uppernav .container .logo {
+  flex: 0;
+  margin-right: auto;
 }
 header .uppernav .container .logo img {
   height: 40px;
 }
-header .uppernav #search-form {
+header .uppernav .container #search-form {
+  margin: auto;
+  max-width: 300px;
+  min-width: 100px;
   height: 25px;
   display: flex;
 }
-header .uppernav #search-form input {
+header .uppernav .container #search-form input {
+  min-width: 100px;
+  flex: 1 1 auto;
   float: left;
   padding: 10px;
 }
-header .uppernav #search-form button {
+header .uppernav .container #search-form button {
+  flex: 1 1 auto;
   float: left;
   background-color: #111;
   padding: 5px 15px;
   cursor: pointer;
 }
-header .uppernav #search-form button img {
+header .uppernav .container #search-form button img {
   width: 15px;
 }
-header .uppernav #rightnav {
+header .uppernav .container #rightnav {
+  flex: 0 1 auto;
   display: flex;
   gap: 15px;
   width: 100px;
+  margin-left: auto;
 }
-header .uppernav #rightnav #Cart {
+header .uppernav .container #rightnav #Cart {
   background-color: #111;
   color: #fff;
   padding: 0px 18px;
 }
-header .uppernav #rightnav #sidebar-toggle {
+header .uppernav .container #rightnav #sidebar-toggle {
   font-size: x-large;
 }
 header nav {
@@ -73,6 +89,13 @@ header nav .current-page:hover {
   background-color: #ba2727;
 }
 
+button {
+  background-color: red;
+  color: white;
+  padding: 7px;
+  font-size: small;
+}
+
 footer {
   background-color: rgb(0, 0, 14);
 }
@@ -80,19 +103,28 @@ footer {
 main {
   margin: auto;
   max-width: 1300px;
+  padding: 20px;
   display: flex;
   flex-direction: column;
 }
 main #hero {
-  background-color: #456de9;
   display: flex;
+  flex-wrap: wrap;
   width: 100%;
-  height: -moz-fit-content;
-  height: fit-content;
-  align-items: center;
+  flex-direction: row;
+  justify-content: space-around;
+  padding: 20px 0 50px 0;
+}
+main #hero article {
+  align-self: center;
+  width: 400px;
 }
 main #hero article:first-child {
-  padding: 20px;
+  flex: 1 0 200px;
+  width: 50%;
+}
+main #hero article:last-child {
+  width: 50%;
 }
 main #hero article #hero-title {
   width: -moz-fit-content;
@@ -106,4 +138,20 @@ main #hero article #hero-title {
 main #hero article img {
   max-width: 100%;
   height: auto;
+}
+main #welcome-section {
+  padding: 50px;
+  text-align: center;
+  font-weight: bold;
+}
+main #welcome-section #welcome2srgt {
+  font-size: medium;
+}
+main #welcome-section #onlinestore {
+  margin: 5px;
+  font-size: x-large;
+}
+main #welcome-section #magic3words {
+  font-weight: normal;
+  font-size: x-small;
 }/*# sourceMappingURL=home.css.map */
