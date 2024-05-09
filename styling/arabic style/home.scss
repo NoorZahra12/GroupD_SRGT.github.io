@@ -8,7 +8,7 @@ main{
     #hero {
         display: flex;
         flex-wrap: wrap; // Make the items wrap when they exceed the width
-        
+
         article {
             width: 150px; // Set a fixed width for the articles      
             background-color: #f56;
