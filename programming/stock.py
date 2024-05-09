@@ -1,5 +1,6 @@
 import tkinter as tk
 from tkinter import ttk
+import json
 
 class Items:
     def __init__(self, itemCode, itemName, chasisNo, engineNo, group, brand, country, quantity, cost, date):
@@ -13,19 +14,6 @@ class Items:
         self.quantity = quantity
         self.cost = cost
         self.date = date
-    
-    def showDetails(self):
-        details = f"Item Code: {self.itemCode}\n"
-        details += f"Item Name: {self.itemName}\n"
-        details += f"Chasis No: {self.chasisNo}\n"
-        details += f"Engine No: {self.engineNo}\n"
-        details += f"Group: {self.group}\n"
-        details += f"Brand: {self.brand}\n"
-        details += f"Country: {self.country}\n"
-        details += f"Quantity: {self.quantity}\n"
-        details += f"Cost: {self.cost}\n"
-        details += f"Date: {self.date}\n"
-        return details
 
 def add_item():
     item_data = [entry.get() for entry in entry_widgets]
@@ -35,6 +23,7 @@ def add_item():
     item_listbox.insert(tk.END, item_string)
     add_button.config(text="Added", state=tk.DISABLED)
     root.after(2000, lambda: reset_button(add_button, "Add Item"))
+    update_json()
 
 def delete_item():
     if item_listbox.curselection():
@@ -43,6 +32,7 @@ def delete_item():
         item_listbox.delete(index)
         delete_button.config(text="Deleted", state=tk.DISABLED)
         root.after(2000, lambda: reset_button(delete_button, "Delete Item"))
+        update_json()
 
 def save_changes():
     selection = item_listbox.curselection()
@@ -56,6 +46,7 @@ def save_changes():
         item_listbox.insert(index, item_string)
         save_button.config(text="Saved", state=tk.DISABLED)
         root.after(2000, lambda: reset_button(save_button, "Save Changes"))
+        update_json()
 
 def reset_button(button, text):
     button.config(text=text, state=tk.NORMAL)
@@ -68,6 +59,18 @@ def show_selected_item(event):
             entry_widgets[i].delete(0, tk.END)  # Clear previous entry
             entry_widgets[i].insert(0, getattr(item, attribute))
 
+def update_json():
+    with open('stock.json', 'w') as json_file:
+        json.dump([vars(item) for item in items_list], json_file)
+
+def load_json():
+    with open('stock.json', 'r') as json_file:
+        data = json.load(json_file)
+        for item_data in data:
+            item = Items(**item_data)
+            items_list.append(item)
+            item_string = f"{item.itemName} | {item.itemCode} | {item.brand}"
+            item_listbox.insert(tk.END, item_string)
 
 root = tk.Tk()
 root.title("Item Management System")
@@ -81,7 +84,7 @@ right_frame = ttk.Frame(root, padding="10")
 right_frame.grid(row=0, column=1, sticky="nsew")
 
 # listbox inside the left frame
-item_listbox = tk.Listbox(left_frame, borderwidth=2, relief="sunken")
+item_listbox = tk.Listbox(left_frame, borderwidth=1, relief="sunken")
 item_listbox.pack(fill="both", expand=True)
 item_listbox.bind("<<ListboxSelect>>", show_selected_item)
 
@@ -113,5 +116,6 @@ save_button = ttk.Button(add_tab, text="Save Changes", command=save_changes)
 save_button.grid(row=len(attributes), column=2, pady=10, padx=5)
 
 items_list = []
+load_json()  # Loading data from JSON file
 
 root.mainloop()
