@@ -76,7 +76,7 @@ root = tk.Tk()
 root.title("Item Management System")
 
 # left frame for list
-left_frame = ttk.Frame(root, padding="10")
+left_frame = ttk.Frame(root, padding="10", width=400)
 left_frame.grid(row=0, column=0, sticky="nsew")
 
 # right frame for notebook
