@@ -22,7 +22,7 @@ def add_item():
     item_string = f"{item.itemName} | {item.itemCode} | {item.brand}"
     item_listbox.insert(tk.END, item_string)
     add_button.config(text="Added", state=tk.DISABLED)
-    root.after(2000, lambda: reset_button(add_button, "Add Item"))
+    root.after(1000, lambda: reset_button(add_button, "Add Item"))
     update_json()
 
 def delete_item():
@@ -31,7 +31,7 @@ def delete_item():
         del items_list[index]
         item_listbox.delete(index)
         delete_button.config(text="Deleted", state=tk.DISABLED)
-        root.after(2000, lambda: reset_button(delete_button, "Delete Item"))
+        root.after(1000, lambda: reset_button(delete_button, "Delete Item"))
         update_json()
 
 def save_changes():
@@ -45,7 +45,7 @@ def save_changes():
         item_listbox.delete(index)
         item_listbox.insert(index, item_string)
         save_button.config(text="Saved", state=tk.DISABLED)
-        root.after(2000, lambda: reset_button(save_button, "Save Changes"))
+        root.after(1000, lambda: reset_button(save_button, "Save Changes"))
         update_json()
 
 def reset_button(button, text):
@@ -74,14 +74,20 @@ def load_json():
 
 root = tk.Tk()
 root.title("Item Management System")
+root.geometry("700x500")
 
 # left frame for list
-left_frame = ttk.Frame(root, padding="10", width=400)
-left_frame.grid(row=0, column=0, sticky="nsew")
+left_frame = ttk.Frame(root, padding="10")
+left_frame.grid(row=0, column=0, columnspan=2, sticky="nsew")
+
+# Adjusting column weights to allocate more space to the left frame
+root.grid_columnconfigure(0, weight=1)
+root.grid_columnconfigure(1, weight=1)
 
 # right frame for notebook
 right_frame = ttk.Frame(root, padding="10")
-right_frame.grid(row=0, column=1, sticky="nsew")
+right_frame.grid(row=0, column=2, sticky="nsew")
+
 
 # listbox inside the left frame
 item_listbox = tk.Listbox(left_frame, borderwidth=1, relief="sunken")
