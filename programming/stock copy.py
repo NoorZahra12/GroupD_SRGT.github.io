@@ -1,6 +1,7 @@
 import tkinter as tk
 from tkinter import ttk
 import json
+import requests
 
 class Items:
     def __init__(self, itemCode, itemName, chasisNo, engineNo, group, brand, country, quantity, cost, date):
@@ -50,6 +51,25 @@ def save_changes():
 
 def reset_button(button, text):
     button.config(text=text, state=tk.NORMAL)
+
+def calculate_selling_price():
+    try:
+        cost_price = float(entry_widgets[-2].get())
+        profit = 0.5 * cost_price
+        response = requests.get('https://api.exchangerate-api.com/v4/latest/USD')
+        print("Response status code:", response.status_code)
+        data = response.json()
+        print("Exchange rate data:", data)
+        exchange_rate = data['rates'].get('AED')
+        print("Exchange rate for AED:", exchange_rate)
+        if exchange_rate:
+            selling_price = (cost_price + profit) * exchange_rate
+            selling_price_var.set(f"AED {selling_price:.2f}")
+        else:
+            selling_price_var.set("Exchange rate not available for AED")
+    except Exception as e:
+        print("Error:", e)
+        selling_price_var.set("Error calculating selling price")
 
 def show_selected_item(event):
     if item_listbox.curselection():
@@ -111,8 +131,13 @@ for i, attribute in enumerate(attributes):
     entry.grid(row=i, column=1, padx=5, pady=2)
     entry_widgets.append(entry)
 
-# adding a label for selling price
-selling_price_label = ttk.Label(add_tab, text="Sell Price: 0:00").grid(row=len(attributes), columnspan=2, pady=2)
+# Adding a StringVar for selling price
+selling_price_var = tk.StringVar()
+selling_price_label = ttk.Label(add_tab, textvariable=selling_price_var)
+selling_price_label.grid(row=len(attributes), columnspan=2, pady=2)
+
+# Bind the calculation function to the cost entry widget
+entry_widgets[-2].bind("<FocusOut>", lambda event: calculate_selling_price())
 
 # 3 buttons for add, clear, and delete
 add_button = ttk.Button(add_tab, text="Add Item", command=add_item)
