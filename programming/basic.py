@@ -4,7 +4,7 @@ import json
 import requests
 
 class Items:
-    def __init__(self, itemCode, itemName, chasisNo, engineNo, group, brand, country, quantity, cost, date, p=0.0, sp=0.0):
+    def __init__(self, itemCode, itemName, chasisNo, engineNo, group, brand, country, quantity, cost, date, profit, sellingPrice):
         self.itemCode = itemCode
         self.itemName = itemName
         self.chasisNo = chasisNo
@@ -15,8 +15,8 @@ class Items:
         self.quantity = quantity
         self.cost = cost
         self.date = date
-        self.p = p
-        self.sp = sp
+        self.profit = profit
+        self.sellingPrice = sellingPrice
 
 
 class Sales:
@@ -26,13 +26,25 @@ class Sales:
 def add_item():
     item_data = [entry.get() for entry in entry_widgets]
     if len(item_data) < 12:
-        item_data.extend(["0", "0.00"])
+        item_data.extend(["0", "0.0", "0.0"])  # Add default values for profit and selling price
     item = Items(*item_data)
+    
+    # Check if both cost and profit are provided
+    if item.cost and item.profit:
+        cost = float(item.cost)
+        profit = float(item.profit)
+        calculate_selling_price_and_save(len(items_list), cost, profit)
+    # Check if both cost and selling price are provided
+    elif item.cost and item.sellingPrice:
+        cost = float(item.cost)
+        selling_price = float(item.sellingPrice)
+        # Calculate profit
+        profit = ((selling_price - cost) / cost) * 100
+        item.profit = f"{profit:.1f}"  # Format profit to have 1 decimal point
     items_list.append(item)
     item_string = f"{item.itemName} | {item.itemCode} | {item.brand}"
     item_listbox.insert(tk.END, item_string)
     update_json()
-
 
 def delete_item():
     selected_index = item_listbox.curselection()
@@ -47,11 +59,32 @@ def save_changes():
         index = selection[0]
         for i, attribute in enumerate(attributes):
             setattr(items_list[index], attribute, entry_widgets[i].get())
+        
         modified_item = items_list[index]
         item_string = f"{modified_item.itemName} | {modified_item.itemCode} | {modified_item.brand}"
         item_listbox.delete(index)
         item_listbox.insert(index, item_string)
+        
+        # Check if both cost and profit are provided
+        if modified_item.cost and modified_item.profit:
+            cost = float(modified_item.cost)
+            profit = float(modified_item.profit)
+            calculate_selling_price_and_save(index, cost, profit)
+        # Check if both cost and selling price are provided
+        elif modified_item.cost and modified_item.sellingPrice:
+            cost = float(modified_item.cost)
+            selling_price = float(modified_item.sellingPrice)
+            # Calculate profit
+            profit = ((selling_price - cost) / cost) * 100
+            items_list[index].profit = f"{profit:.1f}"  # Format profit to have 1 decimal point
+        
         update_json()
+
+def calculate_selling_price_and_save(index, cost, profit):
+    # Calculate the selling price
+    selling_price = cost * (1 + profit / 100)
+    # Save the calculated selling price to the item
+    items_list[index].sellingPrice = f"{selling_price:.1f}"  # Format selling price to have 1 decimal point
 
 
 def fetch_exchange_rate():
@@ -65,22 +98,22 @@ def fetch_exchange_rate():
 
 def calculate_selling_price():
     try:
-        erates = fetch_exchange_rate()
-        cost = float(cost_entry.get())
-        profit_margin = float(profit_combobox.get())
+        # Get the cost from the cost entry
+        cost = float(entry_widgets[8].get())
+        # Get the profit margin from the profit margin entry
+        profit_margin = float(entry_widgets[-1].get())
         
-        # Get the exchange rate for USD
+        # Calculate the selling price
+        erates = fetch_exchange_rate()
         usd_rate = erates['USD']
-        # Convert the cost to USD
         cost_usd = cost / usd_rate
-        # Calculate the selling price in USD
         selling_price_usd = cost_usd * (1 + profit_margin / 100)
-        # Display the selling price in USD
         selling_price_num.config(text=f"{selling_price_usd:.2f}")
     except ValueError:
         selling_price_num.config(text="Invalid input")
     except Exception as e:
         selling_price_num.config(text=f"Error: {e}")
+
 
 
 
@@ -125,24 +158,29 @@ def show_selected_item(event):
         index = item_listbox.curselection()[0]
         item = items_list[index]
         for i, attribute in enumerate(attributes):
-            entry_widgets[i].delete(0, tk.END)  # Clear previous entry
+            entry_widgets[i].delete(0, tk.END)
             entry_widgets[i].insert(0, getattr(item, attribute))
 
 
-def filter_items(event=None):
+def searching(event=None):
     search_query = search_entry.get().lower()
     item_listbox.delete(0, tk.END)
     found_items = []
     for item in items_list:
-        if search_query in item["itemName"].lower() or \
-        search_query in item["itemCode"].lower() or \
-        search_query in item["brand"].lower():
-            found_items.append(f"{item['itemName']} | {item['itemCode']} | {item['brand']}")
+        if search_query in item.itemName.lower() or search_query in item.itemCode.lower() or search_query in item.brand.lower():
+            found_items.append(f"{item.itemName} | {item.itemCode} | {item.brand}")
     if found_items:
         for found_item in found_items:
             item_listbox.insert(tk.END, found_item)
     else:
         item_listbox.insert(tk.END, "No matching results found.")
+
+def reset_list():
+    # Clear the search entry
+    search_entry.delete(0, tk.END)
+    # Reload all items in the listbox
+    update_listbox()
+
 
 root = tk.Tk()
 root.title("Item Management System")
@@ -169,8 +207,12 @@ search_label.grid(row=0, column=0, padx=5, pady=5)
 search_entry = ttk.Entry(search_frame)
 search_entry.grid(row=0, column=1, padx=5, pady=5)
 
-search_btn = ttk.Button(search_frame, text="search")
+search_btn = ttk.Button(search_frame, text="search", command=searching)
 search_btn.grid(row=0,column=2)
+
+reset_button = ttk.Button(search_frame, text="X", command=reset_list, width=3)
+reset_button.grid(row=0, column=3)
+
 
 item_listbox = tk.Listbox(left_frame, borderwidth=1, relief="sunken")
 item_listbox.grid(row=1, column=0, sticky="nsew")
@@ -184,7 +226,7 @@ item_listbox.config(yscrollcommand=scrollbar.set)
 right_frame = ttk.Frame(item_tab, padding="10")
 right_frame.grid(row=0, column=1, sticky="nsew")
 
-attributes = ["itemCode", "itemName", "chasisNo", "engineNo", "group", "brand", "country", "quantity", "cost", "date"]
+attributes = ["itemCode", "itemName", "chasisNo", "engineNo", "group", "brand", "country", "quantity", "cost", "date","profit","sellingPrice"]
 entry_widgets = []
 
 for i, attribute in enumerate(attributes):
@@ -194,30 +236,22 @@ for i, attribute in enumerate(attributes):
     entry_widgets.append(entry)
 
 cost_entry = entry_widgets[8]
-
-profit_label = ttk.Label(right_frame, text="Profit Margin (%):")
-profit_label.grid(row=len(attributes), column=0, padx=5, pady=2)
-
-profit_combobox = ttk.Combobox(right_frame, values=list(range(1, 101)))
-profit_combobox.grid(row=len(attributes), column=1, padx=5, pady=2)
-
-selling_price_label = ttk.Label(right_frame, text="Selling Price:")
-selling_price_label.grid(row=len(attributes)+1, column=0, padx=5, pady=2)
-
-selling_price_num = ttk.Label(right_frame, text="0.00")
-selling_price_num.grid(row=len(attributes)+1, column=1, padx=5, pady=2)
+profit_entry = entry_widgets[10]
+sellingPrice_entry = entry_widgets[11]
 
 
 # 3 buttons
 itemDetail3btnFrame = ttk.Frame(right_frame)
+itemDetail3btnFrame.grid(row=len(attributes)+2, columnspan=3, padx=5, pady=5)
+
 add_button = ttk.Button(itemDetail3btnFrame, text="Add", command=add_item)
-add_button.grid(row=len(attributes)+2, column=0, padx=5, pady=5)
+add_button.grid(row=0, column=0)
 
 delete_button = ttk.Button(itemDetail3btnFrame, text="Delete", command=delete_item)
-delete_button.grid(row=len(attributes)+2, column=1, padx=5, pady=5)
+delete_button.grid(row=0, column=1, padx=10)
 
 save_button = ttk.Button(itemDetail3btnFrame, text="Save Changes", command=save_changes)
-save_button.grid(row=len(attributes)+2, column=2, padx=5, pady=5)
+save_button.grid(row=0, column=2)
 
 # Sales tab for managing sales made
 sales_tab = ttk.Frame(notebook)
