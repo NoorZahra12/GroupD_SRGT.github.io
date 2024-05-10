@@ -4,7 +4,7 @@ import json
 import requests
 
 class Items:
-    def __init__(self, itemCode, itemName, chasisNo, engineNo, group, brand, country, quantity, cost, date, p, sp):
+    def __init__(self, itemCode, itemName, chasisNo, engineNo, group, brand, country, quantity, cost, date, p=0.0, sp=0.0):
         self.itemCode = itemCode
         self.itemName = itemName
         self.chasisNo = chasisNo
@@ -17,6 +17,7 @@ class Items:
         self.date = date
         self.p = p
         self.sp = sp
+
 
 class Sales:
     def __init__(self, name):
@@ -93,21 +94,31 @@ def load_from_json():
         with open("stock.json", "r") as file:
             data = json.load(file)
             for item_data in data:
-                item = Items(**item_data)
+                # Replace missing attributes with default values
+                item_data_with_defaults = {attr: item_data.get(attr, '') for attr in attributes}
+                item = Items(**item_data_with_defaults)
                 items_list.append(item)
-                update_listbox()
+                item_string = f"{item.itemName} | {item.itemCode} | {item.brand}"
+                item_listbox.insert(tk.END, item_string)
     except FileNotFoundError:
-        pass
+        print("Stock JSON file not found.")
+
 
 def update_json():
-    with open('stock.json', 'w') as json_file:
-        data = []
-        for item in items_list:
-            item_data = vars(item)
-            item_data['p'] = float(item_data['p']) if item_data['p'] else 0.0
-            item_data['sp'] = float(item_data['sp']) if item_data['sp'] else 0.0
-            data.append(item_data)
-        json.dump(data, json_file)
+    try:
+        with open('stock.json', 'w') as json_file:
+            data = []
+            for item in items_list:
+                item_data = vars(item)
+                # Replace empty strings with default values before saving
+                for attr in attributes:
+                    if not item_data[attr]:
+                        item_data[attr] = ''
+                data.append(item_data)
+            json.dump(data, json_file)
+    except Exception as e:
+        print(f"Error updating JSON file: {e}")
+
 
 def show_selected_item(event):
     if item_listbox.curselection():
@@ -169,15 +180,6 @@ scrollbar = ttk.Scrollbar(left_frame, orient="vertical", command=item_listbox.yv
 scrollbar.grid(row=1, column=1, sticky="ns")
 item_listbox.config(yscrollcommand=scrollbar.set)
 
-# Load items from JSON file
-with open("stock.json", "r") as file:
-    items_list = json.load(file)
-
-# Populate listbox with items from JSON file
-for item in items_list:
-    item_listbox.insert(tk.END, f"{item['itemName']} | {item['itemCode']} | {item['brand']}")
-
-
 # Right frame
 right_frame = ttk.Frame(item_tab, padding="10")
 right_frame.grid(row=0, column=1, sticky="nsew")
@@ -199,9 +201,6 @@ profit_label.grid(row=len(attributes), column=0, padx=5, pady=2)
 profit_combobox = ttk.Combobox(right_frame, values=list(range(1, 101)))
 profit_combobox.grid(row=len(attributes), column=1, padx=5, pady=2)
 
-calculate_button = ttk.Button(right_frame, text="Calculate", command=calculate_selling_price)
-calculate_button.grid(row=len(attributes), column=2, padx=5, pady=2)
-
 selling_price_label = ttk.Label(right_frame, text="Selling Price:")
 selling_price_label.grid(row=len(attributes)+1, column=0, padx=5, pady=2)
 
@@ -210,13 +209,14 @@ selling_price_num.grid(row=len(attributes)+1, column=1, padx=5, pady=2)
 
 
 # 3 buttons
-add_button = ttk.Button(right_frame, text="Add", command=add_item)
+itemDetail3btnFrame = ttk.Frame(right_frame)
+add_button = ttk.Button(itemDetail3btnFrame, text="Add", command=add_item)
 add_button.grid(row=len(attributes)+2, column=0, padx=5, pady=5)
 
-delete_button = ttk.Button(right_frame, text="Delete", command=delete_item)
+delete_button = ttk.Button(itemDetail3btnFrame, text="Delete", command=delete_item)
 delete_button.grid(row=len(attributes)+2, column=1, padx=5, pady=5)
 
-save_button = ttk.Button(right_frame, text="Save Changes", command=save_changes)
+save_button = ttk.Button(itemDetail3btnFrame, text="Save Changes", command=save_changes)
 save_button.grid(row=len(attributes)+2, column=2, padx=5, pady=5)
 
 # Sales tab for managing sales made
