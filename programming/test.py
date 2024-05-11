@@ -1,16 +1,26 @@
+import tkinter as tk
 import json
-# Load items from JSON file
-try:
-    with open("stock.json", "r") as file:
-        items_list = json.load(file)
-except FileNotFoundError:
-    print("Stock JSON file not found.")
-    items_list = []  # Initialize an empty list
 
-# Populate listbox with items from JSON file
-for item in items_list:
-    # Provide default values for missing keys
-    item_name = item.get('itemName', 'N/A')
-    item_code = item.get('itemCode', 'N/A')
-    brand = item.get('brand', 'N/A')
-    item_listbox.insert(tk.END, f"{item_name} | {item_code} | {brand}")
+def display_stock_json():
+    # Open the stock.json file for reading
+    with open("stock.json", "r") as file:
+        # Load the JSON data into a Python data structure
+        data = json.load(file)
+        # Create a Tkinter window to display the JSON data
+        root = tk.Tk()
+        root.title("stock.json Contents")
+        # Create a text widget to display the JSON data
+        text_widget = tk.Text(root)
+        text_widget.pack()
+
+        # Iterate over the items in the JSON data and assign IDs
+        for i, item in enumerate(data):
+            item['itemId'] = f'product_id_num{i}'
+        
+        # Insert the modified JSON data into the text widget
+        text_widget.insert(tk.END, json.dumps(data, indent=4))
+        # Run the Tkinter event loop
+        root.mainloop()
+
+# Call the function to display stock.json
+display_stock_json()
