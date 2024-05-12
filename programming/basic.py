@@ -102,6 +102,23 @@ def display_deleted_items():
     for item in deleted_items:
         bin_listbox.insert(tk.END, item["itemName"])
 
+def restore_bin():
+    # Your restore bin functionality goes here
+    pass
+
+def restore_all_bin():
+    # Your restore all bin functionality goes here
+    pass
+
+def del_bin():
+    # Your delete bin functionality goes here
+    pass
+
+def del_all_bin():
+    # Your delete all bin functionality goes here
+    pass
+
+
 def save_changes():
     selection = item_listbox.curselection()
     if selection:
@@ -215,7 +232,7 @@ def show_selected_item(event):
             entry_widgets[i].insert(0, getattr(item, attribute))
 
 
-def searching(event=None):
+def search_item(event=None):
     search_query = search_entry.get().lower()
     item_listbox.delete(0, tk.END)
     found_items = []
@@ -227,6 +244,19 @@ def searching(event=None):
             item_listbox.insert(tk.END, found_item)
     else:
         item_listbox.insert(tk.END, "No matching results found.")
+
+def search_bin():
+    search_query = search_entry.get().lower()
+    bin_listbox.delete(0, tk.END)
+    found_items = []
+    for item in items_list:
+        if search_query in item.itemName.lower() or search_query in item.itemCode.lower() or search_query in item.brand.lower():
+            found_items.append(f"{item.itemName} | {item.itemCode} | {item.brand}")
+    if found_items:
+        for found_item in found_items:
+            bin_listbox.insert(tk.END, found_item)
+    else:
+        bin_listbox.insert(tk.END, "No matching results found.")
 
 def reset_list():
     # Clear the search entry
@@ -243,68 +273,52 @@ root.geometry("750x400")
 notebook = ttk.Notebook(root)
 notebook.pack(fill="both", expand=True)
 
+##### ITEM TAB ######
 item_tab = ttk.Frame(notebook)
 notebook.add(item_tab, text="Items")
-
 # Left frame
 left_frame = ttk.Frame(item_tab, padding="10")
 left_frame.grid(row=0, column=0, sticky="nsew")
 left_frame.rowconfigure(1, weight=1)
-
 search_frame = ttk.Frame(left_frame)
 search_frame.grid(row=0, column=0, sticky="nsew")
-
 search_label = ttk.Label(search_frame, text="Search:")
 search_label.grid(row=0, column=0, padx=5, pady=5)
-
 search_entry = ttk.Entry(search_frame)
 search_entry.grid(row=0, column=1, padx=5, pady=5)
-
-search_btn = ttk.Button(search_frame, text="search", command=searching)
+search_btn = ttk.Button(search_frame, text="search", command=search_item)
 search_btn.grid(row=0,column=2)
-
 reset_button = ttk.Button(search_frame, text="X", command=reset_list, width=3)
 reset_button.grid(row=0, column=3)
-
-
 item_listbox = tk.Listbox(left_frame, borderwidth=1, relief="sunken")
 item_listbox.grid(row=1, column=0, sticky="nsew")
 item_listbox.bind("<<ListboxSelect>>", show_selected_item)
-
 scrollbar = ttk.Scrollbar(left_frame, orient="vertical", command=item_listbox.yview)
 scrollbar.grid(row=1, column=1, sticky="ns")
 item_listbox.config(yscrollcommand=scrollbar.set)
-
 # Right frame
 right_frame = ttk.Frame(item_tab, padding="10")
 right_frame.grid(row=0, column=1, sticky="nsew")
-
 attributes = ["itemCode", "itemName", "chasisNo", "engineNo", "group", "brand", "country", "quantity", "cost", "date","profit","sellingPrice"]
 entry_widgets = []
-
 for i, attribute in enumerate(attributes):
     ttk.Label(right_frame, text=attribute.capitalize() + ":").grid(row=i, column=0, sticky="e", padx=5, pady=2)
     entry = ttk.Entry(right_frame, width=30)
     entry.grid(row=i, column=1, padx=5, pady=2)
     entry_widgets.append(entry)
-
-
-
 # 4 buttons
 itemDetail_btnFrame = ttk.Frame(right_frame)
 itemDetail_btnFrame.grid(row=len(attributes)+2, columnspan=3, padx=5, pady=5)
-
 add_button = ttk.Button(itemDetail_btnFrame, text="Add", command=add_item)
 add_button.grid(row=0, column=0, padx=5)
-
 delete_button = ttk.Button(itemDetail_btnFrame, text="Delete", command=delete_item)
 delete_button.grid(row=0, column=1, padx=5)
-
 save_button = ttk.Button(itemDetail_btnFrame, text="Save Changes", command=save_changes)
 save_button.grid(row=0, column=2, padx=5)
-
 get_id_button = ttk.Button(itemDetail_btnFrame, text="Get ID", command=display_item_id)
 get_id_button.grid(row=0, column=3, padx=5)
+
+
 
 # Sales tab for managing sales made
 sales_tab = ttk.Frame(notebook)
@@ -313,17 +327,49 @@ notebook.add(sales_tab, text="Sales")
 # Calculate tab
 calc_tab = ttk.Frame(notebook)
 notebook.add(calc_tab, text="Calculate")
-# Recycle Bin tab
+
+
+
+##### RECYCLE BIN TAB ######
 bin_tab = ttk.Frame(notebook)
 notebook.add(bin_tab, text="Recycle Bin")
+# Left frame
+left_frame = ttk.Frame(bin_tab, padding="10")
+left_frame.grid(row=0, column=0, sticky="nsew")
+left_frame.rowconfigure(1, weight=1)
+search_frame = ttk.Frame(left_frame)
+search_frame.grid(row=0, column=0, sticky="nsew")
+search_label = ttk.Label(search_frame, text="Search:")
+search_label.grid(row=0, column=0, padx=5, pady=5)
+search_entry = ttk.Entry(search_frame)
+search_entry.grid(row=0, column=1, padx=5, pady=5)
+search_btn = ttk.Button(search_frame, text="search", command=search_bin)
+search_btn.grid(row=0,column=2)
+reset_button = ttk.Button(search_frame, text="X", command=reset_list, width=3)
+reset_button.grid(row=0, column=3)
+bin_listbox = tk.Listbox(left_frame, borderwidth=1, relief="sunken")
+bin_listbox.grid(row=1, column=0, sticky="nsew")
+bin_listbox.bind("<<ListboxSelect>>", show_bin_item_details)
+scrollbar = ttk.Scrollbar(left_frame, orient="vertical", command=bin_listbox.yview)
+scrollbar.grid(row=1, column=1, sticky="ns")
+bin_listbox.config(yscrollcommand=scrollbar.set)
+# Right frame
+bin_rightframe = tk.Frame(bin_tab)
+bin_rightframe.grid(row=0, column=1, padx=10, pady=10, sticky="nsew")
+bin_detail = tk.Text(bin_rightframe, wrap="word", width=40, height=10, font=("Arial", 12))
+bin_detail.grid(sticky="nsew")
 
-# Left frame for list of deleted items
-left_frame = ttk.Frame(bin_tab, padding=10)
-left_frame.pack(side="left", fill="y")
-
-# Right frame for buttons and item details
-right_frame = ttk.Frame(bin_tab, padding=10)
-right_frame.pack(side="right", fill="both", expand=True)
+#4 buttons
+bin_btnFrame = ttk.Frame(bin_rightframe)
+bin_btnFrame.grid(row=len(attributes)+2, columnspan=3, padx=5, pady=5)
+restore_button = ttk.Button(bin_btnFrame, text="restore", command=restore_bin)
+restore_button.grid(row=0, column=0, padx=5)
+restore_all_button = ttk.Button(bin_btnFrame, text="restore all", command=restore_all_bin)
+restore_all_button.grid(row=0, column=1, padx=5)
+del_button = ttk.Button(bin_btnFrame, text="del", command=del_bin)
+del_button.grid(row=0, column=3, padx=5)
+del_all_button = ttk.Button(bin_btnFrame, text="del all", command=del_all_bin)
+del_all_button.grid(row=0, column=4, padx=5)
 
 
 # Analysis tab
