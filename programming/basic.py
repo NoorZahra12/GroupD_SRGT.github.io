@@ -26,7 +26,10 @@ class Items:
 
 
 class Sales:
+    next_customer_id = 0
     def __init__(self, name):
+        self.itemId = f'product_id_num{Items.next_customer_id}'
+        Items.next_customer_id += 1
         self.name = name
 
 def add_item():
@@ -59,9 +62,45 @@ def add_item():
 def delete_item():
     selected_index = item_listbox.curselection()
     if selected_index:
+        # Add the deleted item to bin.json
+        deleted_item = items_list[selected_index[0]]
+        add_to_bin(deleted_item)
+        
+        # Remove the item from items_list
         del items_list[selected_index[0]]
         update_listbox()
-        save_to_json()
+        update_json()
+
+def add_to_bin(deleted_item):
+    # Open bin.json for appending
+    with open("bin.json", "a") as bin_file:
+        # Write the deleted item to bin.json
+        json.dump(deleted_item.__dict__, bin_file)
+        bin_file.write('\n')
+
+def display_bin_json():
+    # Open the bin.json file for reading
+    with open("bin.json", "r") as bin_file:
+        # Load the JSON data into a Python data structure
+        bin_data = [json.loads(line) for line in bin_file]
+
+def show_bin_item_details(event):
+    selected_index = bin_listbox.curselection()
+    if selected_index:
+        details_text.delete("1.0", tk.END)
+        selected_item = bin_data[selected_index[0]]
+        details_text.insert(tk.END, json.dumps(selected_item, indent=4))
+
+# Function to display deleted items in the bin_listbox
+def display_deleted_items():
+    # Clear the listbox before adding items
+    bin_listbox.delete(0, tk.END)
+    # Load deleted items from bin.json
+    with open("bin.json", "r") as bin_file:
+        deleted_items = json.load(bin_file)
+    # Populate the listbox with item names
+    for item in deleted_items:
+        bin_listbox.insert(tk.END, item["itemName"])
 
 def save_changes():
     selection = item_listbox.curselection()
@@ -249,9 +288,6 @@ for i, attribute in enumerate(attributes):
     entry.grid(row=i, column=1, padx=5, pady=2)
     entry_widgets.append(entry)
 
-cost_entry = entry_widgets[8]
-profit_entry = entry_widgets[10]
-sellingPrice_entry = entry_widgets[11]
 
 
 # 4 buttons
@@ -277,10 +313,18 @@ notebook.add(sales_tab, text="Sales")
 # Calculate tab
 calc_tab = ttk.Frame(notebook)
 notebook.add(calc_tab, text="Calculate")
-
 # Recycle Bin tab
 bin_tab = ttk.Frame(notebook)
 notebook.add(bin_tab, text="Recycle Bin")
+
+# Left frame for list of deleted items
+left_frame = ttk.Frame(bin_tab, padding=10)
+left_frame.pack(side="left", fill="y")
+
+# Right frame for buttons and item details
+right_frame = ttk.Frame(bin_tab, padding=10)
+right_frame.pack(side="right", fill="both", expand=True)
+
 
 # Analysis tab
 analysis_tab = ttk.Frame(notebook)
