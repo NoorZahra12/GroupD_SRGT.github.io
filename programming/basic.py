@@ -23,14 +23,35 @@ class Items:
         self.date = date
         self.profit = profit
         self.sellingPrice = sellingPrice
+# class Sales:
+#     next_customer_id = 0
+#     def __init__(self, CSname,):
+#         self.itemId = f'product_id_num{Items.next_customer_id}'
+#         Items.next_customer_id += 1
+        
+#         self.name = name
 
 
-class Sales:
-    next_customer_id = 0
-    def __init__(self, name):
-        self.itemId = f'product_id_num{Items.next_customer_id}'
-        Items.next_customer_id += 1
-        self.name = name
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 def add_item():
     # Check if both cost and profit are provided
@@ -58,7 +79,6 @@ def add_item():
     item_string = f"{item.itemName} | {item.itemCode} | {item.brand}"
     item_listbox.insert(tk.END, item_string)
     update_json()
-
 def delete_item():
     selected_index = item_listbox.curselection()
     if selected_index:
@@ -70,27 +90,23 @@ def delete_item():
         del items_list[selected_index[0]]
         update_listbox()
         update_json()
-
 def add_to_bin(deleted_item):
     # Open bin.json for appending
     with open("bin.json", "a") as bin_file:
         # Write the deleted item to bin.json
         json.dump(deleted_item.__dict__, bin_file)
         bin_file.write('\n')
-
 def display_bin_json():
     # Open the bin.json file for reading
     with open("bin.json", "r") as bin_file:
         # Load the JSON data into a Python data structure
         bin_data = [json.loads(line) for line in bin_file]
-
 def show_bin_item_details(event):
     selected_index = bin_listbox.curselection()
     if selected_index:
         details_text.delete("1.0", tk.END)
         selected_item = bin_data[selected_index[0]]
         details_text.insert(tk.END, json.dumps(selected_item, indent=4))
-
 # Function to display deleted items in the bin_listbox
 def display_deleted_items():
     # Clear the listbox before adding items
@@ -101,24 +117,6 @@ def display_deleted_items():
     # Populate the listbox with item names
     for item in deleted_items:
         bin_listbox.insert(tk.END, item["itemName"])
-
-def restore_bin():
-    # Your restore bin functionality goes here
-    pass
-
-def restore_all_bin():
-    # Your restore all bin functionality goes here
-    pass
-
-def del_bin():
-    # Your delete bin functionality goes here
-    pass
-
-def del_all_bin():
-    # Your delete all bin functionality goes here
-    pass
-
-
 def save_changes():
     selection = item_listbox.curselection()
     if selection:
@@ -149,9 +147,6 @@ def save_changes():
         item_listbox.insert(index, item_string)
         
         update_json()
-
-
-
 def fetch_exchange_rate():
     try:
         response = requests.get('https://api.exchangerate-api.com/v4/latest/USD')
@@ -160,7 +155,6 @@ def fetch_exchange_rate():
     except Exception as e:
         print(f"Error fetching exchange rates: {e}")
         return {}
-
 def calculate_selling_price():
     try:
         # Get the cost from the cost entry
@@ -178,20 +172,15 @@ def calculate_selling_price():
         selling_price_num.config(text="Invalid input")
     except Exception as e:
         selling_price_num.config(text=f"Error: {e}")
-
 def display_item_id():
     if item_listbox.curselection():
         index = item_listbox.curselection()[0]
         item_id = items_list[index].itemId
         messagebox.showinfo("Selected Item ID", f"The ID of the selected item is: {item_id}")
-
-
-
 def update_listbox():
     item_listbox.delete(0, tk.END)
     for item in items_list:
         item_listbox.insert(tk.END, f"{item.itemName} | {item.itemCode} | {item.brand}")
-
 def load_from_json():
     try:
         with open("stock.json", "r") as file:
@@ -205,8 +194,6 @@ def load_from_json():
                 item_listbox.insert(tk.END, item_string)
     except FileNotFoundError:
         print("Stock JSON file not found.")
-
-
 def update_json():
     try:
         with open('stock.json', 'w') as json_file:
@@ -221,8 +208,6 @@ def update_json():
             json.dump(data, json_file)
     except Exception as e:
         print(f"Error updating JSON file: {e}")
-
-
 def show_selected_item(event):
     if item_listbox.curselection():
         index = item_listbox.curselection()[0]
@@ -230,8 +215,6 @@ def show_selected_item(event):
         for i, attribute in enumerate(attributes):
             entry_widgets[i].delete(0, tk.END)
             entry_widgets[i].insert(0, getattr(item, attribute))
-
-
 def search_item(event=None):
     search_query = search_entry.get().lower()
     item_listbox.delete(0, tk.END)
@@ -244,7 +227,6 @@ def search_item(event=None):
             item_listbox.insert(tk.END, found_item)
     else:
         item_listbox.insert(tk.END, "No matching results found.")
-
 def search_bin():
     search_query = search_entry.get().lower()
     bin_listbox.delete(0, tk.END)
@@ -257,7 +239,6 @@ def search_bin():
             bin_listbox.insert(tk.END, found_item)
     else:
         bin_listbox.insert(tk.END, "No matching results found.")
-
 def reset_list():
     # Clear the search entry
     search_entry.delete(0, tk.END)
@@ -265,13 +246,41 @@ def reset_list():
     update_listbox()
 
 
+
+
+
+
+
+
+
+
+
 root = tk.Tk()
 root.title("SRGT Management System")
 root.geometry("750x400")
-
 # Notebook structure
 notebook = ttk.Notebook(root)
 notebook.pack(fill="both", expand=True)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 ##### ITEM TAB ######
 item_tab = ttk.Frame(notebook)
@@ -320,9 +329,47 @@ get_id_button.grid(row=0, column=3, padx=5)
 
 
 
-# Sales tab for managing sales made
-sales_tab = ttk.Frame(notebook)
-notebook.add(sales_tab, text="Sales")
+
+
+
+
+
+
+
+
+
+
+# Recycle bin tab
+bin_tab = ttk.Frame(notebook)
+notebook.add(bin_tab, text="Recycle Bin")
+# Button frame
+btn_frame = ttk.Frame(bin_tab)
+btn_frame.pack(pady=10)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+# # Sales tab for managing sales made
+# sales_tab = ttk.Frame(notebook)
+# notebook.add(sales_tab, text="Sales")
 
 # Calculate tab
 calc_tab = ttk.Frame(notebook)
@@ -330,52 +377,10 @@ notebook.add(calc_tab, text="Calculate")
 
 
 
-##### RECYCLE BIN TAB ######
-bin_tab = ttk.Frame(notebook)
-notebook.add(bin_tab, text="Recycle Bin")
-# Left frame
-left_frame = ttk.Frame(bin_tab, padding="10")
-left_frame.grid(row=0, column=0, sticky="nsew")
-left_frame.rowconfigure(1, weight=1)
-search_frame = ttk.Frame(left_frame)
-search_frame.grid(row=0, column=0, sticky="nsew")
-search_label = ttk.Label(search_frame, text="Search:")
-search_label.grid(row=0, column=0, padx=5, pady=5)
-search_entry = ttk.Entry(search_frame)
-search_entry.grid(row=0, column=1, padx=5, pady=5)
-search_btn = ttk.Button(search_frame, text="search", command=search_bin)
-search_btn.grid(row=0,column=2)
-reset_button = ttk.Button(search_frame, text="X", command=reset_list, width=3)
-reset_button.grid(row=0, column=3)
-bin_listbox = tk.Listbox(left_frame, borderwidth=1, relief="sunken")
-bin_listbox.grid(row=1, column=0, sticky="nsew")
-bin_listbox.bind("<<ListboxSelect>>", show_bin_item_details)
-scrollbar = ttk.Scrollbar(left_frame, orient="vertical", command=bin_listbox.yview)
-scrollbar.grid(row=1, column=1, sticky="ns")
-bin_listbox.config(yscrollcommand=scrollbar.set)
-# Right frame
-bin_rightframe = tk.Frame(bin_tab)
-bin_rightframe.grid(row=0, column=1, padx=10, pady=10, sticky="nsew")
-bin_detail = tk.Text(bin_rightframe, wrap="word", width=40, height=10, font=("Arial", 12))
-bin_detail.grid(sticky="nsew")
 
-#4 buttons
-bin_btnFrame = ttk.Frame(bin_rightframe)
-bin_btnFrame.grid(row=len(attributes)+2, columnspan=3, padx=5, pady=5)
-restore_button = ttk.Button(bin_btnFrame, text="restore", command=restore_bin)
-restore_button.grid(row=0, column=0, padx=5)
-restore_all_button = ttk.Button(bin_btnFrame, text="restore all", command=restore_all_bin)
-restore_all_button.grid(row=0, column=1, padx=5)
-del_button = ttk.Button(bin_btnFrame, text="del", command=del_bin)
-del_button.grid(row=0, column=3, padx=5)
-del_all_button = ttk.Button(bin_btnFrame, text="del all", command=del_all_bin)
-del_all_button.grid(row=0, column=4, padx=5)
-
-
-# Analysis tab
-analysis_tab = ttk.Frame(notebook)
-notebook.add(analysis_tab, text="Analysis")
-
+# # Analysis tab
+# analysis_tab = ttk.Frame(notebook)
+# notebook.add(analysis_tab, text="Analysis")
 
 # Initialize items list
 items_list = []

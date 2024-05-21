@@ -1,0 +1,29 @@
+@import '_general';
+main{
+    margin: auto;
+    max-width: 1000px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+}
+#products {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 12px;
+}
+
+#products div {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid black;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+#products div div{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    border: none;
+}

@@ -4,27 +4,46 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Product Catalog</title>
+    <link rel="stylesheet" href="../sassy folder/english style/product.css">
+    <link rel="shortcut icon" href="../images/iconlogo.png"/>
 </head>
 <body>
-    <div id="products"></div>
+    <header>
+        <div class="uppernav">
+            <div class="container">
+                <!-- Logo -->
+                <div class="logo">
+                    <img src="../images/logo.png" alt="SRGT Logo">
+                </div>
 
-    <script>
-        fetch('/products')
-            .then(response => response.json())
-            .then(data => {
-                const productsDiv = document.getElementById('products');
-                data.forEach(product => {
-                    productsDiv.innerHTML += `
-                        <div>
-                            <p>Name: ${product.name}</p>
-                            <p>Code: ${product.code}</p>
-                            <p>Selling Price: $${product.selling_price.toFixed(2)}</p>
-                            <button>Add to Cart</button>
-                        </div>
-                    `;
-                });
-            })
-            .catch(error => console.error('Error fetching products:', error));
-    </script>
-</body>
+                <!-- Search Bar -->
+                <form id="search-form">
+                    <input type="text" placeholder="Search.." name="search">
+                    <button type="submit"><img src="../images/searchicon.png" alt="Search icon"></button>
+                </form>
+
+                <!-- Sidebar toggle button -->
+                <div id="rightnav">
+                    <button id="Cart">Cart</button>
+                    <div id="sidebar-toggle"onclick="toggleSidebar()">☰</div>
+                </div>
+            </div>
+        </div>
+        
+        <nav>
+            <a href="../../index.html">Home</a>
+            <a href="../pages/about.html">About Us</a>
+            <a href="../pages/product.html" class="current-page">Products</a>
+            <a href="../pages/contact.html">Contact</a>
+        </nav>
+    </header>
+    <aside>
+
+    </aside>
+    <main>
+        <section id="products"></section>
+    </main>
+    
+    <script src="../programming/productitems.js"></script>
+</body>    
 </html>

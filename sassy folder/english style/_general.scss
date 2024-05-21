@@ -106,3 +106,44 @@ footer{
         padding-right: 600px;
     }
 }
+
+@media (min-width: 600px) {
+    .uppernav .container {
+        display: grid;
+        grid-template-areas: 
+            'logo search-form rightnav';
+    }
+
+    .uppernav .container .logo {
+        grid-area: logo;
+    }
+
+    .uppernav .container #search-form {
+        grid-area: search-form;
+    }
+
+    .uppernav .container #rightnav {
+        grid-area: rightnav;
+    }
+}
+
+@media (600px > width > 200px) {
+    .uppernav .container {
+        display: grid;
+        grid-template-areas: 
+            'logo rightnav'
+            'search-form search-form';
+    }    
+
+    .uppernav .container .logo {
+        grid-area: logo;
+    }
+
+    .uppernav .container #search-form {
+        grid-area: search-form;
+    }
+
+    .uppernav .container #rightnav {
+        grid-area: rightnav;
+    }
+}

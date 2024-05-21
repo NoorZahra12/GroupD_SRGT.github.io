@@ -141,94 +141,25 @@ main {
   display: flex;
   flex-direction: column;
 }
-main #hero {
+
+#products {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 12px;
+}
+
+#products div {
   display: flex;
-  flex-wrap: wrap;
-  width: 100%;
-  flex-direction: row;
-  justify-content: space-around;
-  padding: 20px 0 50px 0;
-  gap: 50px;
-}
-main #hero article {
-  align-self: center;
-  width: 400px;
-}
-main #hero article:first-child {
-  flex: 1 0 200px;
-  width: 50%;
-  padding: 10px;
-}
-main #hero article:last-child {
-  width: 50%;
-}
-main #hero article #hero-title {
-  width: -moz-fit-content;
-  width: fit-content;
-  background-image: linear-gradient(45deg, red, purple, blue);
-  -webkit-background-clip: text;
-          background-clip: text;
-  -webkit-text-fill-color: transparent;
-  font-size: 3em;
-}
-main #hero article img {
-  max-width: 100%;
-  height: auto;
-}
-main #welcome-section {
-  padding: 50px;
-  text-align: center;
-  font-weight: bold;
-}
-main #welcome-section #welcome2srgt {
-  font-size: large;
-}
-main #welcome-section #onlinestore {
-  margin: 5px;
-  font-size: xx-large;
-}
-main #welcome-section #magic3words {
-  font-weight: normal;
-  font-size: small;
-}
-main #four-services {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
-  gap: 20px;
-}
-main #four-services article {
-  background-color: rgba(0, 0, 0, 0.5);
-  height: 150px;
-  color: white;
-  background-size: cover;
-  -o-object-fit: cover;
-     object-fit: cover;
-  padding: 20px;
-}
-main #four-services article:nth-child(1) {
-  background-image: url(../../images/dp.png);
-}
-main #four-services article:nth-child(2) {
-  background-image: url(../../images/ep.png);
-}
-main #four-services article:nth-child(3) {
-  background-image: url(../../images/te.png);
-}
-main #four-services article:nth-child(4) {
-  background-image: url(../../images/sp.png);
-}
-main #featured-products {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 10px;
-  padding: 20px;
-}
-main #featured-products article {
-  padding: 10px;
+  flex-direction: column;
   border: 1px solid black;
+  padding: 10px;
+  border-radius: 5px;
 }
-main #featured-products article #priiice {
+
+#products div div {
   display: flex;
+  flex-direction: row;
   justify-content: space-between;
-  height: 35px;
-}/*# sourceMappingURL=home.css.map */
+  flex-wrap: wrap;
+  border: none;
+}/*# sourceMappingURL=product.css.map */
