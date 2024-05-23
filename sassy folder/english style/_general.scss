@@ -7,14 +7,14 @@ body {
 }
 
 header{
-    /* Upper navigation styles */
+    background-color: #9E0909;
     .uppernav {
         background-color: #D81B1B;
         color: #fff;
         padding: 10px 15px;
         .container {
             margin: auto;
-            max-width: 1100px;
+            max-width: 1000px;
             gap: 10px;
                 .logo {
                     width: fit-content;
@@ -53,13 +53,14 @@ header{
                     gap: 15px;
                     width: 100px;
                     margin-left: auto;
+                    align-items: center;
                     #Cart{
                         background-color: #111;
                         color: #fff;
-                        padding: 0px 18px;
+                        padding: 5px 18px;
                     }
-                    #sidebar-toggle{
-                        font-size: x-large;
+                    #lang{
+                        font-size: large;
                     }
                 }
             }
@@ -88,6 +89,51 @@ header{
     }
 }
 
+main{
+    margin: auto;
+    max-width: 1000px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+footer{
+    background-color: rgb(00, 00, 14);
+    color: white;
+    border-bottom: 1px solid white;
+    display: grid;
+    gap: 10px;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    div{
+        padding: 10px;
+        h3{
+            border-bottom: 1px solid white; width: 120px;
+            padding-left: -10px;
+        }
+        a{
+            // all the a are inline i want them to be in new line so im using display block for anchor tags in footer only
+            display: block;
+        }
+        #img3links{
+            width: 80%;
+            display: flex;
+            gap: 10px;
+            justify-content: center;
+        }
+        #img3links img{
+            width: 20px;
+        }
+    }
+}
+
+.footercc{
+    background-color: rgb(00, 00, 14);
+    color: white;
+    padding: 10px;
+    text-align: center;
+}
+
+
 button{
     background-color: red;
     color: white;
@@ -95,15 +141,17 @@ button{
     font-size: small;
 }
 
-footer{
-    background-color: rgb(00, 00, 14);
-}
+
+
+
+
+
 
 
 @media (1000px < width){
     nav{
         justify-content: center;
-        padding-right: 600px;
+        padding-right: 650px;
     }
 }
 

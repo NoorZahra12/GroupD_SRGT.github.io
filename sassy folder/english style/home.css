@@ -7,7 +7,7 @@ body {
 }
 
 header {
-  /* Upper navigation styles */
+  background-color: #9E0909;
   /* Navigation bar styles */
 }
 header .uppernav {
@@ -17,7 +17,7 @@ header .uppernav {
 }
 header .uppernav .container {
   margin: auto;
-  max-width: 1100px;
+  max-width: 1000px;
   gap: 10px;
 }
 header .uppernav .container .logo {
@@ -57,14 +57,15 @@ header .uppernav .container #rightnav {
   gap: 15px;
   width: 100px;
   margin-left: auto;
+  align-items: center;
 }
 header .uppernav .container #rightnav #Cart {
   background-color: #111;
   color: #fff;
-  padding: 0px 18px;
+  padding: 5px 18px;
 }
-header .uppernav .container #rightnav #sidebar-toggle {
-  font-size: x-large;
+header .uppernav .container #rightnav #lang {
+  font-size: large;
 }
 header nav {
   background-color: rgb(10, 10, 10);
@@ -87,6 +88,50 @@ header nav .current-page:hover {
   background-color: #ba2727;
 }
 
+main {
+  margin: auto;
+  max-width: 1000px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+footer {
+  background-color: rgb(0, 0, 14);
+  color: white;
+  border-bottom: 1px solid white;
+  display: grid;
+  gap: 10px;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+}
+footer div {
+  padding: 10px;
+}
+footer div h3 {
+  border-bottom: 1px solid white;
+  width: 120px;
+  padding-left: -10px;
+}
+footer div a {
+  display: block;
+}
+footer div #img3links {
+  width: 80%;
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+}
+footer div #img3links img {
+  width: 20px;
+}
+
+.footercc {
+  background-color: rgb(0, 0, 14);
+  color: white;
+  padding: 10px;
+  text-align: center;
+}
+
 button {
   background-color: red;
   color: white;
@@ -94,14 +139,10 @@ button {
   font-size: small;
 }
 
-footer {
-  background-color: rgb(0, 0, 14);
-}
-
 @media (1000px < width) {
   nav {
     justify-content: center;
-    padding-right: 600px;
+    padding-right: 650px;
   }
 }
 @media (min-width: 600px) {
