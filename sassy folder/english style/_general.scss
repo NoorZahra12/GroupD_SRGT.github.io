@@ -1,6 +1,7 @@
 body {
     font-family: Arial, sans-serif;
     margin: 0;
+    word-break: break-word;
     padding: 0;
     max-width: 100%;
     overflow-x: hidden;
@@ -30,6 +31,7 @@ header{
                     height: 25px;
                     display: flex;
                     input{
+                        height: 6px;
                         min-width: 100px;
                         flex: 1 1 auto;
                         float: left;
@@ -51,15 +53,18 @@ header{
                     flex: 0 1 auto;
                     display: flex;
                     gap: 15px;
-                    width: 100px;
+                    width: 150px;
                     margin-left: auto;
                     align-items: center;
                     #Cart{
                         background-color: #111;
                         color: #fff;
+                        width: 80px;
                         padding: 5px 18px;
                     }
                     #lang{
+                        color: white;
+                        text-decoration: none;
                         font-size: large;
                     }
                 }
@@ -96,14 +101,19 @@ main{
     display: flex;
     flex-direction: column;
 }
-
-footer{
+.footerbg{
+    width: 100%;
     background-color: rgb(00, 00, 14);
-    color: white;
     border-bottom: 1px solid white;
+}
+footer{
+    max-width: 1200px;
+    margin: auto;
+    color: white;
     display: grid;
     gap: 10px;
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+
     div{
         padding: 10px;
         h3{
@@ -135,10 +145,18 @@ footer{
 
 
 button{
-    background-color: red;
+    background-color: #D81B1B;
     color: white;
-    padding: 7px;
+    width: 120px;
+    padding: 5px;
+    height: 35px;
+    border: none;
     font-size: small;
+    transition: all 0.5s ease;
+    &:hover{
+        cursor: pointer;
+        background-color: #e31111;
+    }
 }
 
 

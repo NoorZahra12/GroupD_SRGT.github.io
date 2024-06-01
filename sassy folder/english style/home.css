@@ -1,6 +1,7 @@
 body {
   font-family: Arial, sans-serif;
   margin: 0;
+  word-break: break-word;
   padding: 0;
   max-width: 100%;
   overflow-x: hidden;
@@ -36,6 +37,7 @@ header .uppernav .container #search-form {
   display: flex;
 }
 header .uppernav .container #search-form input {
+  height: 6px;
   min-width: 100px;
   flex: 1 1 auto;
   float: left;
@@ -55,16 +57,19 @@ header .uppernav .container #rightnav {
   flex: 0 1 auto;
   display: flex;
   gap: 15px;
-  width: 100px;
+  width: 150px;
   margin-left: auto;
   align-items: center;
 }
 header .uppernav .container #rightnav #Cart {
   background-color: #111;
   color: #fff;
+  width: 80px;
   padding: 5px 18px;
 }
 header .uppernav .container #rightnav #lang {
+  color: white;
+  text-decoration: none;
   font-size: large;
 }
 header nav {
@@ -96,10 +101,16 @@ main {
   flex-direction: column;
 }
 
-footer {
+.footerbg {
+  width: 100%;
   background-color: rgb(0, 0, 14);
-  color: white;
   border-bottom: 1px solid white;
+}
+
+footer {
+  max-width: 1200px;
+  margin: auto;
+  color: white;
   display: grid;
   gap: 10px;
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
@@ -133,10 +144,18 @@ footer div #img3links img {
 }
 
 button {
-  background-color: red;
+  background-color: #D81B1B;
   color: white;
-  padding: 7px;
+  width: 120px;
+  padding: 5px;
+  height: 35px;
+  border: none;
   font-size: small;
+  transition: all 0.5s ease;
+}
+button:hover {
+  cursor: pointer;
+  background-color: #e31111;
 }
 
 @media (1000px < width) {
@@ -272,4 +291,60 @@ main #featured-products article #priiice {
   display: flex;
   justify-content: space-between;
   height: 35px;
+}
+main #why-choose-us {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
+  margin: 0 auto;
+  padding: 20px;
+  font-family: Arial, sans-serif;
+}
+main #why-choose-us h2 {
+  color: white;
+}
+main #why-choose-us article {
+  background-color: #f9f9f9;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  padding: 20px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+main #why-choose-us h3 {
+  margin-bottom: 10px;
+  color: #333;
+}
+main #why-choose-us p {
+  line-height: 1.6;
+  color: #666;
+}
+main #faq {
+  width: 80%;
+  margin: 0 auto;
+  font-family: Arial, sans-serif;
+}
+main #faq details {
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  margin-bottom: 10px;
+  padding: 10px;
+}
+main #faq details summary {
+  font-weight: bold;
+  cursor: pointer;
+  padding: 10px;
+  outline: none;
+}
+main #faq details summary:hover {
+  background-color: #f0f0f0;
+}
+main #faq details summary details p {
+  margin: 0;
+  padding: 10px;
+  background-color: #f9f9f9;
+  border-radius: 0 0 5px 5px;
+}
+main #faq details summary details[open] summary {
+  border-bottom: 1px solid #ddd;
+  margin-bottom: 10px;
 }/*# sourceMappingURL=home.css.map */

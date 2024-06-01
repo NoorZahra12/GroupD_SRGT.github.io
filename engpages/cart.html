@@ -37,31 +37,11 @@
             <a href="./contact.html">Contact</a>
         </nav>
     </header>
-    
     <main>
-        <aside id="sidebar">
-            <button id="open-btn">☰</button>
-            <button id="close-btn">×</button>
-            <p style="margin-top: 40px;">Currency: <select id="currency-select">
-                    <!-- default currency -->
-                    <option value="AED">AED</option>
-                    <!-- english -->
-                    <option value="USD">USD</option>
-                    <!-- arab -->
-                    <option value="SAR">SAR</option>
-                    <option value="EGP">EGP</option>
-                    <!-- europe -->
-                    <option value="EUR">EUR</option>
-                    <!-- asian -->
-                    <option value="PKR">PKR</option>
-                    <option value="INR">INR</option>
-                </select>
-            </p>
-            <p>Filter by Brand</p>
-            <ul id="brand-filter"></ul>
-        </aside>
-        <section>
-            <article id="products"></article>
+        <section id="cart">
+            <h2>Shopping Cart</h2>
+            <ul id="cart-items"></ul>
+            <button onclick="checkout()">Checkout</button>
         </section>
     </main>
     <div class="footerbg">
@@ -113,6 +93,6 @@
         </footer>
     </div>
     <div class="footercc">Copyright &copy; 2024 Shah Rafiq General Trading LLC. All rights reserved.</div>
-    <script src="../programming/productitems.js"></script>
+    <script src="../programming/cart.js"></script>
 </body>    
 </html>

@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact</title>
+    <link rel="stylesheet" href="../sassy folder/english style/contact.css">
+    <link rel="shortcut icon" href="../images/iconlogo.png"/>
+</head>
+<body>
+    <header>
+        <div class="uppernav">
+            <div class="container">
+                <!-- Logo -->
+                <div class="logo">
+                    <img src="../images/logo.png" alt="SRGT Logo">
+                </div>
+
+                <!-- Search Bar -->
+                <!-- <form id="search-form">
+                    <input type="text" placeholder="Search.." name="search">
+                    <button type="submit"><img src="../images/searchicon.png" alt="Search icon"></button>
+                </form> -->
+
+                <!-- Sidebar toggle button -->
+                <div id="rightnav">
+                    <button id="Cart">Cart</button>
+                    <div id="sidebar-toggle" onclick="toggleSidebar()">☰</div>
+                </div>
+            </div>
+        </div>
+        
+        <nav>
+            <a href="../index.html">Home</a>
+            <a href="./about.html">About Us</a>
+            <a href="./product.html">Products</a>
+            <a href="./contact.html" class="current-page">Contact</a>
+        </nav>
+    </header>
+    <main>
+        <section>
+            <div class="contact-container">
+                <div class="get-in-touch">
+                    <h2>Get In Touch</h2>
+                    <form id="contactForm">
+                        <div>
+                            <label for="name">Name:</label>
+                            <input type="text" id="name" name="name" required>
+                            <label for="email">Email:</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        <div>
+                            <label for="subject">Subject:</label>
+                            <input type="text" id="subject" name="subject" required>
+                        </div>
+                        <div>
+                            <label for="message">Message:</label>
+                            <textarea id="message" name="message" rows="5" required></textarea>
+                        </div>
+                        <button type="submit">Submit</button>
+                    </form>
+                </div>
+                <div class="stay-connected">
+                    <h2>Stay Connected</h2>
+                    <p>Deira, Dubai, U.A.E</p>
+                    <p>For support, please message us on WhatsApp or E-mail:</p>
+                    <p>Email: <a href="mailto:shahrtg@eim.ae">shahrtg@eim.ae</a></p>
+                    <p>Yousaf Muzamil</p>
+                    <p>Mobile number: +971 52 717 1620</p>
+                    <p>Telephone: +971 4 224 7155</p>
+                    <p>Hamid Khan</p>
+                    <p><a href="tel:+971557777247">+971 55 777 2747</a></p>
+                </div>
+            </div>
+        </section>
+        <section>
+            <div class="location">
+                <div class="texts">
+                    <h2>Our Location</h2>
+                    <p>Shah Rafiq General Trading,Deira,Dubai,United Arab Emirates
+                    </p>
+                </div>
+                <div class="mapimg">
+                    <a href="https://www.google.com/maps/dir//24+31D+St+-+Naif+-+Dubai/@25.2710767,55.2293701,12z/data=!4m8!4m7!1m0!1m5!1m1!1s0x3e5f434afe6b7191:0xf0493c0d0196267d!2m2!1d55.3117716!2d25.2710996?entry=ttu" target="_blank" width="400" height="350">
+                        <img src="../images/Location.png" alt="Map Location">
+                    </a>
+                </div>
+            </div>
+            <iframe src="https://www.google.com/maps/embed?pb=!4v1716794538499!6m8!1m7!1sbISKZkPmFalrHN79v1K82A!2m2!1d25.27132061350698!2d55.31160248642434!3f154.75291100746352!4f-10.212382410483485!5f0.7820865974627469" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </section>
+    </main>
+
+    <div class="footerbg">
+        <footer>
+            <div>
+                <img src="../images/logofooter.png" alt="logo" width="200px">
+                <p></p>
+                <div id="img3links">
+                    <img src="../images/emailicon.png" alt="email">
+                    <img src="../images/facebookicon.png" alt="fb">
+                    <img src="../images/whatsappicon.png" alt="whatsapp">
+                </div>
+            </div>
+            <div>
+                <h3>Quick Links</h3>
+                <a>About us</a>
+                <a>Contact us</a>
+                <a>Products</a>
+                <a>FAQs</a>
+            </div>
+            <div>
+                <h3>Information</h3>
+                <a>Terms and Conditions</a>
+                <a>Privacy Policy</a>
+                <a>Refund Policy</a>
+                <a>Test Equipment</a>
+            </div>
+            <div>
+                <h3>Contact</h3>
+                <p>
+                    Email: shahrgt@eim.ae
+                </p>
+                <p>
+                    Yousaf Muzamil
+                    <ul>
+                        <li>Mobile: +971 52 717 1620</li>
+                        <li>Telephone: +971 4 224 7155</li>
+                    </ul>
+                </p>
+                <p>
+                    Hamid Khan
+                    <ul>
+                        <li>Whatsapp: +971 55 777 2747</li>
+                    </ul>
+                </p>
+                <p>Location:Deira, Dubai - U.A.E</p>
+            </div>
+        
+        </footer>
+    </div>
+    <div class="footercc">Copyright &copy; 2024 Shah Rafiq General Trading LLC. All rights reserved.</div>
+    <script src="script.js"></script>
+</body>    
+</html>

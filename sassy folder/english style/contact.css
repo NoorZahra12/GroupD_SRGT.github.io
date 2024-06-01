@@ -1,6 +1,7 @@
 body {
   font-family: Arial, sans-serif;
   margin: 0;
+  word-break: break-word;
   padding: 0;
   max-width: 100%;
   overflow-x: hidden;
@@ -36,6 +37,7 @@ header .uppernav .container #search-form {
   display: flex;
 }
 header .uppernav .container #search-form input {
+  height: 6px;
   min-width: 100px;
   flex: 1 1 auto;
   float: left;
@@ -55,16 +57,19 @@ header .uppernav .container #rightnav {
   flex: 0 1 auto;
   display: flex;
   gap: 15px;
-  width: 100px;
+  width: 150px;
   margin-left: auto;
   align-items: center;
 }
 header .uppernav .container #rightnav #Cart {
   background-color: #111;
   color: #fff;
+  width: 80px;
   padding: 5px 18px;
 }
 header .uppernav .container #rightnav #lang {
+  color: white;
+  text-decoration: none;
   font-size: large;
 }
 header nav {
@@ -96,10 +101,16 @@ main {
   flex-direction: column;
 }
 
-footer {
+.footerbg {
+  width: 100%;
   background-color: rgb(0, 0, 14);
-  color: white;
   border-bottom: 1px solid white;
+}
+
+footer {
+  max-width: 1200px;
+  margin: auto;
+  color: white;
   display: grid;
   gap: 10px;
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
@@ -133,10 +144,18 @@ footer div #img3links img {
 }
 
 button {
-  background-color: red;
+  background-color: #D81B1B;
   color: white;
-  padding: 7px;
+  width: 120px;
+  padding: 5px;
+  height: 35px;
+  border: none;
   font-size: small;
+  transition: all 0.5s ease;
+}
+button:hover {
+  cursor: pointer;
+  background-color: #e31111;
 }
 
 @media (1000px < width) {
@@ -174,4 +193,68 @@ button {
   .uppernav .container #rightnav {
     grid-area: rightnav;
   }
+}
+.contact-container {
+  display: flex;
+  justify-content: space-between;
+  padding: 20px;
+  background-color: white;
+  margin: 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  flex-wrap: wrap;
+}
+
+.get-in-touch, .stay-connected {
+  width: 45%;
+}
+
+.get-in-touch h2, .stay-connected h2 {
+  margin-bottom: 20px;
+}
+
+form div {
+  margin-bottom: 15px;
+}
+
+form label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+form input, form textarea {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+form button {
+  background-color: #d30000;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+form button:hover {
+  background-color: black;
+  color: white;
+}
+
+/* Add background image to stay-connected */
+.stay-connected {
+  background-image: url("../../images/bg-stayconnected.png");
+  background-size: cover;
+  background-position: center;
+  padding: 20px;
+  border-radius: 10px;
+  color: white; /* Adjust text color for better readability */
+  background-color: rgba(0, 3, 66, 0.6941176471); /* Fallback background color */
+}
+
+/* Ensure text is visible */
+.stay-connected p, .stay-connected a {
+  color: white;
 }/*# sourceMappingURL=contact.css.map */

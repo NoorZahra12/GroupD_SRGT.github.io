@@ -1,6 +1,7 @@
 body {
   font-family: Arial, sans-serif;
   margin: 0;
+  word-break: break-word;
   padding: 0;
   max-width: 100%;
   overflow-x: hidden;
@@ -36,6 +37,7 @@ header .uppernav .container #search-form {
   display: flex;
 }
 header .uppernav .container #search-form input {
+  height: 6px;
   min-width: 100px;
   flex: 1 1 auto;
   float: left;
@@ -55,16 +57,19 @@ header .uppernav .container #rightnav {
   flex: 0 1 auto;
   display: flex;
   gap: 15px;
-  width: 100px;
+  width: 150px;
   margin-left: auto;
   align-items: center;
 }
 header .uppernav .container #rightnav #Cart {
   background-color: #111;
   color: #fff;
+  width: 80px;
   padding: 5px 18px;
 }
 header .uppernav .container #rightnav #lang {
+  color: white;
+  text-decoration: none;
   font-size: large;
 }
 header nav {
@@ -96,10 +101,16 @@ main {
   flex-direction: column;
 }
 
-footer {
+.footerbg {
+  width: 100%;
   background-color: rgb(0, 0, 14);
-  color: white;
   border-bottom: 1px solid white;
+}
+
+footer {
+  max-width: 1200px;
+  margin: auto;
+  color: white;
   display: grid;
   gap: 10px;
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
@@ -133,10 +144,18 @@ footer div #img3links img {
 }
 
 button {
-  background-color: red;
+  background-color: #D81B1B;
   color: white;
-  padding: 7px;
+  width: 120px;
+  padding: 5px;
+  height: 35px;
+  border: none;
   font-size: small;
+  transition: all 0.5s ease;
+}
+button:hover {
+  cursor: pointer;
+  background-color: #e31111;
 }
 
 @media (1000px < width) {
@@ -177,30 +196,133 @@ button {
 }
 main {
   margin: auto;
-  max-width: 1000px;
-  padding: 20px;
+  max-width: 1200px;
+  padding: 0;
+  display: flex;
+  flex-direction: row;
+}
+main aside {
+  width: 30px; /* original width */
+  color: white;
+  padding: 5px;
+  background-color: #0C0F1D;
+  overflow: hidden;
+  transition: width 0.3s ease, background-color 0.3s ease;
+  position: relative;
   display: flex;
   flex-direction: column;
+  align-items: flex-start;
+}
+main aside button {
+  background-color: red;
+  color: white;
+  width: 100%;
+  height: -moz-fit-content;
+  height: fit-content;
+  font-size: large;
+}
+main aside #open-btn {
+  display: block;
+  margin: auto;
+  background-color: #0C0F1D;
+  margin-top: 0;
+  color: white;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+main aside #open-btn:hover {
+  background-color: navy;
+}
+main aside #close-btn {
+  display: none;
+  width: 100%;
+  position: absolute;
+  padding-right: 15px;
+  background: none;
+  border: none;
+  text-align: right;
+  color: white;
+  font-size: 24px;
+  cursor: pointer;
+}
+main aside #close-btn:hover {
+  color: red;
+}
+main aside p, main aside ul {
+  display: none;
+}
+main aside.expanded {
+  width: 150px;
+}
+main aside.expanded #open-btn {
+  display: none;
+}
+main aside.expanded #close-btn, main aside.expanded p, main aside.expanded ul {
+  display: block;
+}
+main section {
+  flex: 1; /* Use remaining space */
+  padding: 10px;
+  overflow-y: scroll;
+  height: 80vh;
+  transition: width 0.3s ease;
+}
+main aside.expanded ~ section {
+  flex: auto; /* Use remaining space */
+}
+main #brand-filter li {
+  margin: 5px;
+}
+main #brand-filter li:hover {
+  cursor: pointer;
+  color: #889cff;
 }
 
+/* Parent of cards */
 #products {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   gap: 12px;
+  height: -moz-fit-content;
+  height: fit-content;
 }
 
+/* Cards */
 #products div {
+  cursor: default;
+  padding: 15px;
+  border: 1.5px solid #c1c1c1;
+  border-radius: 5px;
   display: flex;
   flex-direction: column;
-  border: 1px solid black;
-  padding: 10px;
-  border-radius: 5px;
+  transition: transform 0.5s ease;
+}
+#products div:hover {
+  transform: scale(1.05);
 }
 
-#products div div {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  flex-wrap: wrap;
+#products div p {
+  margin: 7px;
+}
+
+#products div button {
+  margin-left: auto;
+  transition: border 0.3s ease;
+  --c: #000000; /* the border color */
+  --b: 2px; /* the border thickness*/
+  --g: 5px; /* the gap on hover */
+  padding: calc(var(--g) + var(--b));
+  --_g: #0000 25%,var(--c) 0;
+  background: conic-gradient(from 180deg at top var(--b) right var(--b), var(--_g)) var(--_i, 200%) 0/200% var(--_i, var(--b)) no-repeat, conic-gradient(at bottom var(--b) left var(--b), var(--_g)) 0 var(--_i, 200%)/var(--_i, var(--b)) 200% no-repeat;
+  background-color: rgb(217, 0, 0);
+  transition: 0.3s, background-position 0.3s 0.3s;
   border: none;
+}
+#products div button:hover {
+  background-color: rgb(255, 0, 0);
+  cursor: pointer;
+  --_i: 100%;
+  transition: 0.3s, background-size 0.3s 0.3s;
 }/*# sourceMappingURL=product.css.map */
