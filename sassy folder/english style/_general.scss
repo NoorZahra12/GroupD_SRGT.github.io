@@ -123,15 +123,31 @@ footer{
         a{
             // all the a are inline i want them to be in new line so im using display block for anchor tags in footer only
             display: block;
+            text-decoration: none;
+            color: white;
+            margin: 0;
+            padding: 0;
+            transition: all 0.5s ease;
+            &:hover{
+                cursor: pointer;
+                margin: 5px 0;
+                background-color: rgb(0, 0, 50);
+                padding: 5px;
+            }
         }
         #img3links{
             width: 80%;
             display: flex;
             gap: 10px;
             justify-content: center;
-        }
-        #img3links img{
-            width: 20px;
+            img{
+                width: 20px;
+                transition: all 0.5s ease;
+                &:hover{
+                    cursor: pointer;
+                    transform: scale(1.4);
+                }
+            }
         }
     }
 }

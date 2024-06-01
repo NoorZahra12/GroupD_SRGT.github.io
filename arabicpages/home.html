@@ -5,9 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Shah Rafiq General Trading</title>
     <!-- this is where i'll add the icon for the website -->
-    <link rel="shortcut icon" href="images/iconlogo.png"/>
+    <link rel="shortcut icon" href="../images/iconlogo.png"/>
     <!-- this is link to stylesheet -->
-    <link rel="stylesheet" href="./sassy folder/english style/home.css" type="text/css"> 
+    <link rel="stylesheet" href="../sassy folder/arabic style/home.css" type="text/css"> 
 </head>
 <body>
     <header>
@@ -15,19 +15,19 @@
             <div class="container">
                 <!-- Logo -->
                 <div class="logo">
-                    <img src="images/logo.png" alt="SRGT Logo">
+                    <img src="../images/logo.png" alt="SRGT Logo">
                 </div>
 
                 <!-- Search Bar -->
-                <form id="search-form">
+                <!-- <form id="search-form">
                     <input type="text" placeholder="Search.." name="search">
                     <button type="submit"><img src="./images/searchicon.png" alt="Search icon"></button>
-                </form>
+                </form> -->
 
                 <!-- Sidebar toggle button -->
                 <div id="rightnav">
                     <button id="Cart">Cart</button>
-                    <a id="lang" href="./arabicpages/home.html">عربي</a>
+                    <a id="lang" href="./arabicpages/home.html" style="font-size: small;">English</a>
                 </div>
             </div>
         </div>
@@ -41,14 +41,16 @@
     </header>
 
     <main>
-        <!-- <marquee behavior="sroll" direction="left"><img src="./images/brand list.png" alt="" style="height: 55px;"></marquee> -->
-    
+        <div class="marquee-container">
+            <img src="./images/brand_list.png" alt="" class="marquee-image">
+        </div>
+
         <!-- Content Sections -->
         <section id="hero">
             <article>
                 <h1 id="hero-title">Quality First </h1>
                 <p id="hero-message">We trade and provide only the finest autoparts for your vehicle.</p>
-                <button class="explore-btn">Explore</button>
+                <button class="explore-btn" onclick="location.href='./engpages/product.html';">Explore</button>
             </article>
             <article>
                 <img src="./images/heroimg.png" alt="Hero Image"/>
@@ -65,136 +67,153 @@
             <article>
                 <h3>DIESEL PARTS</h3>
                 <p>Fuel injectors,  head rotors, fuel valves, and etc. </p>
-                <button class="shop_now_btn">SHOP NOW</button>
+                <button class="shop_now_btn" onclick="location.href='./engpages/product.html';">SHOP NOW</button>
             </article>
             <article>
                 <h3>ENGINE PARTS</h3>
                 <p>spark plugs, oil filters, belts, etc.</p>
-                <button class="shop-now-btn">SHOP NOW</button>
+                <button class="shop-now-btn" onclick="location.href='./engpages/product.html';">SHOP NOW</button>
             </article>
             <article>
                 <h3>TEST EQUIPMENT</h3>
                 <p>Need our help? We’ll be glad to assist you.</p>
-                <button class="service-btn">GET SERVICE</button>
+                <button class="service-btn" onclick="gocontpage">GET SERVICE</button>
             </article>
             <article>
                 <h3>SPECIALITY PARTS</h3>
                 <p>marine ship parts, generators, tractors, etc.</p>
-                <button class="shop-now-btn">SHOP NOW</button>
+                <button class="shop-now-btn" onclick="location.href='./engpages/product.html';">SHOP NOW</button>
             </article>
         </section>
 
         <h2 style="margin: auto; margin-top: 100px;">FEATURED PRODUCTS</h2>
 
         <section id="featured-products">
-            <article>
-                <img></img>
-                <h4>Product name</h4>
-                <h5>product code</h5>
-                <div id="priiice">
-                    <p>price</p>
-                    <button class="add_to_cart">Add to Cart</button>
-                </div>
-            </article>
-            <article>
-                <img></img>
-                <h4>Product name</h4>
-                <h5>product code</h5>
-                <div id="priiice">
-                    <p>price</p>
-                    <button class="add_to_cart">Add to Cart</button>
-                </div>
-            </article>
-            <article>
-                <img></img>
-                <h4>Product name</h4>
-                <h5>product code</h5>
-                <div id="priiice">
-                    <p>price</p>
-                    <button class="add_to_cart">Add to Cart</button>
-                </div>
-            </article>
-            <article>
-                <img></img>
-                <h4>Product name</h4>
-                <h5>product code</h5>
-                <div id="priiice">
-                    <p>price</p>
-                    <button class="add_to_cart">Add to Cart</button>
-                </div>
-            </article>
+            <div class="leftarrow"><</div>
+            <div class="carousel">
+                <article>
+                    <img src="" alt="">
+                    <h4>Product name</h4>
+                    <h5>product code</h5>
+                    <div id="priiice">
+                        <p>price</p>
+                        <button class="add_to_cart">Add to Cart</button>
+                    </div>
+                </article>
+                <article>
+                    <img src="./images/featuredprod/" alt="">
+                    <h4>Product name</h4>
+                    <h5>product code</h5>
+                    <div id="priiice">
+                        <p>price</p>
+                        <button class="add_to_cart">Add to Cart</button>
+                    </div>
+                </article>
+                <article>
+                    <img src="./images/featuredprod/" alt="">
+                    <h4>Product name</h4>
+                    <h5>product code</h5>
+                    <div id="priiice">
+                        <p>price</p>
+                        <button class="add_to_cart">Add to Cart</button>
+                    </div>
+                </article>
+                <article>
+                    <img src="./images/featuredprod/" alt="">
+                    <h4>Product name</h4>
+                    <h5>product code</h5>
+                    <div id="priiice">
+                        <p>price</p>
+                        <button class="add_to_cart">Add to Cart</button>
+                    </div>
+                </article>
+            </div>
+            <div class="rightarrow">></div>
         </section>
         <br>
         <h2 style="margin: auto; margin-top: 50px;">WHY CHOOSE US</h2>
         <section id="why-choose-us">
             <article>
-                <img src="" alt="">
-                <h3></h3>
-                <p></p>
+                <h3>Quality Assurance</h3>
+                <p>We prioritize quality in every part we offer, ensuring our customers receive products that meet or exceed industry standards.</p>
             </article>
             <article>
-                <img src="" alt="">
-                <h3></h3>
-                <p></p>
+                <h3>Extensive Selection</h3>
+                <p>With a vast inventory of auto parts, we provide options for various makes and models, giving customers the flexibility to find the perfect fit for their vehicle.</p>
             </article>
             <article>
-                <img src="" alt="">
-                <h3></h3>
-                <p></p>
+                <h3>Competitive Pricing</h3>
+                <p>Our commitment to affordability means customers can access top-notch auto parts without breaking the bank, making maintenance and repairs more accessible.</p>
+            </article>
+            <article>
+                <h3>Fast and Reliable Shipping</h3>
+                <p>We understand the importance of timely delivery, so we strive to ensure orders are processed swiftly and reach customers promptly, wherever they are.</p>
+            </article>
+            <article>
+                <h3>Customer Satisfaction Guarantee</h3>
+                <p>We stand behind our products and services, offering a satisfaction guarantee to ensure our customers are completely happy with their purchases.</p>
+            </article>
+            <article>
+                <h3>Trust and Reliability</h3>
+                <p>With years of experience and a reputation for reliability, customers can trust us to deliver top-quality auto parts and exceptional service every time.</p>
             </article>
         </section>
+        <br>
+        <h2 style="margin: auto; margin-top:40px;margin-bottom:20px;">Frequent Asked Questions </h2>
         <section id="faq">
             <details>
-                <summary>Summary</summary>
-                <p>full detail</p>
+                <summary>What are the working days of the shop?</summary>
+                <p>Our shop is open from Monday - Saturday.</p>
+            </details>
+            <details>
+                <summary>When is the shop usually open?</summary>
+                <p>Our shop is open from 9:30 AM to 1:30 PM and from 4:00 AM to 9:30 PM.</p>
+            </details>
+            <details>
+                <summary>The item I ordered is out of stock, when will it be back in stock?</summary>
+                <p>Our products are ordered every month, so they will be back in stock next month. Sorry for the inconvenience.</p>
+            </details>
+            <details>
+                <summary>What is the warranty of the product?</summary>
+                <p>Every product has a different warranty, but generally, all our products have around 1 year <br> you can go to contact page and provide us with the information of your product and ask for it's warranty, and we will tell you the warranty of that specific product.</p>
             </details>
         </section>
     </main>
-    <footer>
-        <div>
-            <img src="./images/logofooter.png" alt="logo" width="200px">
-            <p></p>
-            <div id="img3links">
-                <img src="./images/emailicon.png" alt="email">
-                <img src="./images/facebookicon.png" alt="fb">
-                <img src="./images/whatsappicon.png" alt="whatsapp">
+    <div class="footerbg">
+        <footer>
+            <div>
+                <img src="../images/logofooter.png" alt="logo" width="200px">
+                <p></p>
+                <div id="img3links">
+                    <img src="../images/emailicon.png" alt="email" onclick="location.href='mailto:shahrgt@eim.ae';" target="_blank">
+                    <img src="../images/facebookicon.png" alt="fb" onclick="location.href='https://www.facebook.com/autopartsdxb/';" target="_blank">
+                    <img src="../images/whatsappicon.png" alt="whatsapp" onclick="location.href='tel:+971527171620';" target="_blank">
+                </div>
             </div>
-        </div>
-        <div>
-            <h3>Quick Links</h3>
-            <a>About us</a>
-            <a>Contact us</a>
-            <a>Products</a>
-            <a>FAQs</a>
-        </div>
-        <div>
-            <h3>Information</h3>
-            <a>Terms and Conditions</a>
-            <a>Privacy Policy</a>
-            <a>Refund Policy</a>
-            <a>Test Equipment</a>
-        </div>
-        <div>
-            <h3>Contact</h3>
-            <p>
-                Email: shahrgt@eim.ae
-            </p>
-            <p>
-                Yousaf Muzamil
-                <ul>
-                    <li>Mobile: +971 52 717 1620</li>
-                    <li>Telephone: +971 4 224 7155</li>
-                </ul>
-            </p>
-            <p>
-                Hamid Khan
-                <ul>
-                    <li>Whatsapp: +971 55 777 2747</li>
-                </ul>
-            </p>
-            <p>Location:Deira, Dubai - U.A.E</p>
-        </div>
-    </footer>
+            <div>
+                <h3>Quick Links</h3>
+                <a href="./engpages/about.html">About us</a>
+                <a href="./engpages/about.html">Contact us</a>
+                <a href="./engpages/about.html">Products</a>
+                <a href="./engpages/about.html">FAQs</a>
+            </div>
+            <div>
+                <h3>Information</h3>
+                <a href="./arabicpages/contact.html"></a>
+                <a href="./engpages/contact.html">Terms and Conditions</a>
+                <a href="./engpages/contact.html">Privacy Policy</a>
+                <a href="./engpages/contact.html">Refund Policy</a>
+                <a href="./engpages/contact.html">Test Equipment</a>
+            </div>
+            <div>
+                <h3>Contact</h3>
+                <a href="./engpages/contact.html">contact us page</a>
+                <p>Email: <a href="mailto:shahrgt@eim.ae" target="_blank">shahrgt@eim.ae</a></p>
+                <p>Location: <a href="./engpages/contact.html#location">Deira, Dubai - U.A.E</a></p>
+            </div>
+        
+        </footer>
+    </div>
     <div class="footercc">Copyright &copy; 2024 Shah Rafiq General Trading LLC. All rights reserved.</div>
 </body>
 </html>

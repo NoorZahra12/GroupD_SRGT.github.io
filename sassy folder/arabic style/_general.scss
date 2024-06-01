@@ -1,62 +1,81 @@
 body {
     font-family: Arial, sans-serif;
-    background-color: #f5f5f5;
     margin: 0;
+    word-break: break-word;
     padding: 0;
+    max-width: 100%;
+    overflow-x: hidden;
 }
 
 header{
-    /* Upper navigation styles */
+    background-color: #9E0909;
     .uppernav {
         background-color: #D81B1B;
         color: #fff;
         padding: 10px 15px;
         .container {
             margin: auto;
-            max-width: 1500px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            .logo img {
-                height: 40px;
-            }
-        }
-        #search-form{
-            height: 25px;
-            display: flex;
-            input{
-                float: left;
-                padding: 10px;
-            }
-            button{
-                float: left;
-                background-color: #111;
-                padding: 5px 15px;
-                cursor: pointer;
-                img{
-                    width: 15px;
+            max-width: 1000px;
+            gap: 10px;
+                .logo {
+                    width: fit-content;
+                    margin-right: auto;
+                    img {
+                        height: 40px;
+                    }
+                }
+                #search-form{
+                    margin: auto;
+                    max-width: 300px;
+                    min-width: 100px;
+                    height: 25px;
+                    display: flex;
+                    input{
+                        height: 6px;
+                        min-width: 100px;
+                        flex: 1 1 auto;
+                        float: left;
+                        padding: 10px;
+                    }
+                    button{
+                        flex: 1 1 auto;
+                        float: left;
+                        background-color: #111;
+                        padding: 5px 15px;
+                        cursor: pointer;
+                        img{
+                            width: 15px;
+                        }
+                    }
+                }
+                
+                #rightnav{
+                    flex: 0 1 auto;
+                    display: flex;
+                    gap: 15px;
+                    width: 150px;
+                    margin-left: auto;
+                    align-items: center;
+                    #Cart{
+                        background-color: #111;
+                        color: #fff;
+                        width: 80px;
+                        padding: 5px 18px;
+                    }
+                    #lang{
+                        color: white;
+                        text-decoration: none;
+                        font-size: large;
+                    }
                 }
             }
         }
-        #rightnav{
-            display: flex;
-            gap: 15px;
-            width: 100px;
-            #Cart{
-                background-color: #111;
-                color: #fff;
-                padding: 0px 18px;
-            }
-            #sidebar-toggle{
-                font-size: x-large;
-            }
-        }
-    }
 
     /* Navigation bar styles */
     nav {
         background-color: rgb(10, 10, 10);
         display: flex;
+        flex-wrap: wrap;
         gap: 1px;
         a {
             padding: 10px;
@@ -75,6 +94,138 @@ header{
     }
 }
 
-footer{
+main{
+    margin: auto;
+    max-width: 1000px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+}
+.footerbg{
+    width: 100%;
     background-color: rgb(00, 00, 14);
+    border-bottom: 1px solid white;
+}
+footer{
+    max-width: 1200px;
+    margin: auto;
+    color: white;
+    display: grid;
+    gap: 10px;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+
+    div{
+        padding: 10px;
+        h3{
+            border-bottom: 1px solid white; width: 120px;
+            padding-left: -10px;
+        }
+        a{
+            // all the a are inline i want them to be in new line so im using display block for anchor tags in footer only
+            display: block;
+            text-decoration: none;
+            color: white;
+            margin: 0;
+            padding: 0;
+            transition: all 0.5s ease;
+            &:hover{
+                cursor: pointer;
+                margin: 5px 0;
+                background-color: rgb(0, 0, 50);
+                padding: 5px;
+            }
+        }
+        #img3links{
+            width: 80%;
+            display: flex;
+            gap: 10px;
+            justify-content: center;
+            img{
+                width: 20px;
+                transition: all 0.5s ease;
+                &:hover{
+                    cursor: pointer;
+                    transform: scale(1.4);
+                }
+            }
+        }
+    }
+}
+
+.footercc{
+    background-color: rgb(00, 00, 14);
+    color: white;
+    padding: 10px;
+    text-align: center;
+}
+
+
+button{
+    background-color: #D81B1B;
+    color: white;
+    width: 120px;
+    padding: 5px;
+    height: 35px;
+    border: none;
+    font-size: small;
+    transition: all 0.5s ease;
+    &:hover{
+        cursor: pointer;
+        background-color: #e31111;
+    }
+}
+
+
+
+
+
+
+
+
+@media (1000px < width){
+    nav{
+        justify-content: center;
+        padding-right: 650px;
+    }
+}
+
+@media (min-width: 600px) {
+    .uppernav .container {
+        display: grid;
+        grid-template-areas: 
+            'logo search-form rightnav';
+    }
+
+    .uppernav .container .logo {
+        grid-area: logo;
+    }
+
+    .uppernav .container #search-form {
+        grid-area: search-form;
+    }
+
+    .uppernav .container #rightnav {
+        grid-area: rightnav;
+    }
+}
+
+@media (600px > width > 200px) {
+    .uppernav .container {
+        display: grid;
+        grid-template-areas: 
+            'logo rightnav'
+            'search-form search-form';
+    }    
+
+    .uppernav .container .logo {
+        grid-area: logo;
+    }
+
+    .uppernav .container #search-form {
+        grid-area: search-form;
+    }
+
+    .uppernav .container #rightnav {
+        grid-area: rightnav;
+    }
 }

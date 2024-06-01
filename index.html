@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Shah Rafiq General Trading</title>
     <!-- this is where i'll add the icon for the website -->
-    <link rel="shortcut icon" href="images/iconlogo.png"/>
+    <link rel="shortcut icon" href="./images/iconlogo.png"/>
     <!-- this is link to stylesheet -->
     <link rel="stylesheet" href="./sassy folder/english style/home.css" type="text/css"> 
 </head>
@@ -15,7 +15,7 @@
             <div class="container">
                 <!-- Logo -->
                 <div class="logo">
-                    <img src="images/logo.png" alt="SRGT Logo">
+                    <img src="./images/logo.png" alt="SRGT Logo">
                 </div>
 
                 <!-- Search Bar -->
@@ -26,8 +26,8 @@
 
                 <!-- Sidebar toggle button -->
                 <div id="rightnav">
-                    <button id="Cart">Cart</button>
-                    <a id="lang" href="./arabicpages/home.html">عربي</a>
+                    <button id="Cart" onclick="location.href='./engpages/cart.html';">Cart</button>
+                    <a id="lang" href="./engpages/home.html">عربي</a>
                 </div>
             </div>
         </div>
@@ -35,7 +35,7 @@
         <nav>
             <a href="./index.html" class="current-page">Home</a>
             <a href="./engpages/about.html">About Us</a>
-            <a href="./engpages/product.html">Products</a>
+            <a href="./engpages/">Products</a>
             <a href="./engpages/contact.html">Contact</a>
         </nav>
     </header>
@@ -51,7 +51,7 @@
             <article>
                 <h1 id="hero-title">Quality First </h1>
                 <p id="hero-message">We trade and provide only the finest autoparts for your vehicle.</p>
-                <button class="explore-btn">Explore</button>
+                <button class="explore-btn" onclick="location.href='./engpages/product.html';">Explore</button>
             </article>
             <article>
                 <img src="./images/heroimg.png" alt="Hero Image"/>
@@ -68,22 +68,22 @@
             <article>
                 <h3>DIESEL PARTS</h3>
                 <p>Fuel injectors,  head rotors, fuel valves, and etc. </p>
-                <button class="shop_now_btn">SHOP NOW</button>
+                <button class="shop_now_btn" onclick="location.href='./engpages/product.html';">SHOP NOW</button>
             </article>
             <article>
                 <h3>ENGINE PARTS</h3>
                 <p>spark plugs, oil filters, belts, etc.</p>
-                <button class="shop-now-btn">SHOP NOW</button>
+                <button class="shop-now-btn" onclick="location.href='./engpages/product.html';">SHOP NOW</button>
             </article>
             <article>
                 <h3>TEST EQUIPMENT</h3>
                 <p>Need our help? We’ll be glad to assist you.</p>
-                <button class="service-btn">GET SERVICE</button>
+                <button class="service-btn" onclick="gocontpage">GET SERVICE</button>
             </article>
             <article>
                 <h3>SPECIALITY PARTS</h3>
                 <p>marine ship parts, generators, tractors, etc.</p>
-                <button class="shop-now-btn">SHOP NOW</button>
+                <button class="shop-now-btn" onclick="location.href='./engpages/product.html';">SHOP NOW</button>
             </article>
         </section>
 
@@ -91,7 +91,7 @@
 
         <section id="featured-products">
             <article>
-                <img></img>
+                <img src="" alt="">
                 <h4>Product name</h4>
                 <h5>product code</h5>
                 <div id="priiice">
@@ -100,7 +100,7 @@
                 </div>
             </article>
             <article>
-                <img></img>
+                <img src="./images/featuredprod/" alt="">
                 <h4>Product name</h4>
                 <h5>product code</h5>
                 <div id="priiice">
@@ -109,7 +109,7 @@
                 </div>
             </article>
             <article>
-                <img></img>
+                <img src="./images/featuredprod/" alt="">
                 <h4>Product name</h4>
                 <h5>product code</h5>
                 <div id="priiice">
@@ -118,7 +118,7 @@
                 </div>
             </article>
             <article>
-                <img></img>
+                <img src="./images/featuredprod/" alt="">
                 <h4>Product name</h4>
                 <h5>product code</h5>
                 <div id="priiice">
@@ -156,7 +156,7 @@
             </article>
         </section>
         <br>
-        <h2 style="margin: auto; margin-top:40px;margin-bottom:20px;">FAQ </h2>
+        <h2 style="margin: auto; margin-top:40px;margin-bottom:20px;">Frequent Asked Questions </h2>
         <section id="faq">
             <details>
                 <summary>What are the working days of the shop?</summary>
@@ -172,7 +172,7 @@
             </details>
             <details>
                 <summary>What is the warranty of the product?</summary>
-                <p>Every product has a different warranty, but generally, all our products have around 1 year. Please go to the contact page and provide us with the name of your product, and we will tell you the warranty of that specific product.</p>
+                <p>Every product has a different warranty, but generally, all our products have around 1 year <br> you can go to contact page and provide us with the information of your product and ask for it's warranty, and we will tell you the warranty of that specific product.</p>
             </details>
         </section>
     </main>
@@ -182,44 +182,31 @@
                 <img src="../images/logofooter.png" alt="logo" width="200px">
                 <p></p>
                 <div id="img3links">
-                    <img src="../images/emailicon.png" alt="email">
-                    <img src="../images/facebookicon.png" alt="fb">
-                    <img src="../images/whatsappicon.png" alt="whatsapp">
+                    <img src="../images/emailicon.png" alt="email" onclick="location.href='mailto:shahrgt@eim.ae';" target="_blank">
+                    <img src="../images/facebookicon.png" alt="fb" onclick="location.href='https://www.facebook.com/autopartsdxb/';" target="_blank">
+                    <img src="../images/whatsappicon.png" alt="whatsapp" onclick="location.href='tel:+971527171620';" target="_blank">
                 </div>
             </div>
             <div>
                 <h3>Quick Links</h3>
-                <a>About us</a>
-                <a>Contact us</a>
-                <a>Products</a>
-                <a>FAQs</a>
+                <a href="./engpages/about.html">About us</a>
+                <a href="./engpages/about.html">Contact us</a>
+                <a href="./engpages/about.html">Products</a>
+                <a href="./engpages/about.html">FAQs</a>
             </div>
             <div>
                 <h3>Information</h3>
-                <a>Terms and Conditions</a>
-                <a>Privacy Policy</a>
-                <a>Refund Policy</a>
-                <a>Test Equipment</a>
+                <a href="./engpages/contact.html"></a>
+                <a href="./engpages/contact.html">Terms and Conditions</a>
+                <a href="./engpages/contact.html">Privacy Policy</a>
+                <a href="./engpages/contact.html">Refund Policy</a>
+                <a href="./engpages/contact.html">Test Equipment</a>
             </div>
             <div>
                 <h3>Contact</h3>
-                <p>
-                    Email: shahrgt@eim.ae
-                </p>
-                <p>
-                    Yousaf Muzamil
-                    <ul>
-                        <li>Mobile: +971 52 717 1620</li>
-                        <li>Telephone: +971 4 224 7155</li>
-                    </ul>
-                </p>
-                <p>
-                    Hamid Khan
-                    <ul>
-                        <li>Whatsapp: +971 55 777 2747</li>
-                    </ul>
-                </p>
-                <p>Location:Deira, Dubai - U.A.E</p>
+                <a href="./engpages/contact.html">contact us page</a>
+                <p>Email: <a href="mailto:shahrgt@eim.ae" target="_blank">shahrgt@eim.ae</a></p>
+                <p>Location: <a href="./engpages/contact.html#location">Deira, Dubai - U.A.E</a></p>
             </div>
         
         </footer>

@@ -3,7 +3,7 @@
 
 main {
     margin: auto;
-    max-width: 1200px;
+    max-width: 1300px;
     padding: 0;
     display: flex;
     flex-direction: row;
@@ -79,8 +79,19 @@ main {
         flex: 1; /* Use remaining space */
         padding: 10px;
         overflow-y: scroll;
-        height: 80vh;
+        height: 78vh;
         transition: width 0.3s ease;
+        &::-webkit-scrollbar {
+            width: 12px;               /* width of the entire scrollbar */
+        }
+        &::-webkit-scrollbar-track {
+            background: white;
+        }
+        &::-webkit-scrollbar-thumb {
+            border: 1px solid black;
+            background-color: rgb(3, 0, 36);    /* color of the scroll thumb */
+            border-radius: 2px;       /* roundness of the scroll thumb */
+        }
     }
 
     aside.expanded ~ section { 
@@ -144,5 +155,4 @@ main {
         --_i: 100%;
         transition: .3s, background-size .3s .3s;
     }
-
 }

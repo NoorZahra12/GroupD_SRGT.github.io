@@ -125,6 +125,17 @@ footer div h3 {
 }
 footer div a {
   display: block;
+  text-decoration: none;
+  color: white;
+  margin: 0;
+  padding: 0;
+  transition: all 0.5s ease;
+}
+footer div a:hover {
+  cursor: pointer;
+  margin: 5px 0;
+  background-color: rgb(0, 0, 50);
+  padding: 5px;
 }
 footer div #img3links {
   width: 80%;
@@ -134,6 +145,11 @@ footer div #img3links {
 }
 footer div #img3links img {
   width: 20px;
+  transition: all 0.5s ease;
+}
+footer div #img3links img:hover {
+  cursor: pointer;
+  transform: scale(1.4);
 }
 
 .footercc {
@@ -203,32 +219,26 @@ button:hover {
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   flex-wrap: wrap;
 }
-
-.get-in-touch, .stay-connected {
+.contact-container .get-in-touch, .contact-container .stay-connected {
   width: 45%;
 }
-
-.get-in-touch h2, .stay-connected h2 {
+.contact-container .get-in-touch h2 {
   margin-bottom: 20px;
 }
-
-form div {
+.contact-container .get-in-touch form div {
   margin-bottom: 15px;
 }
-
-form label {
+.contact-container .get-in-touch form label {
   display: block;
   margin-bottom: 5px;
 }
-
-form input, form textarea {
+.contact-container .get-in-touch form input, .contact-container .get-in-touch form textarea {
   width: 100%;
   padding: 10px;
   border: 1px solid #ccc;
   border-radius: 5px;
 }
-
-form button {
+.contact-container .get-in-touch form button {
   background-color: #d30000;
   color: white;
   padding: 10px 20px;
@@ -237,14 +247,11 @@ form button {
   cursor: pointer;
   transition: background-color 0.3s, color 0.3s;
 }
-
-form button:hover {
+.contact-container .get-in-touch form button:hover {
   background-color: black;
   color: white;
 }
-
-/* Add background image to stay-connected */
-.stay-connected {
+.contact-container .stay-connected {
   background-image: url("../../images/bg-stayconnected.png");
   background-size: cover;
   background-position: center;
@@ -253,8 +260,9 @@ form button:hover {
   color: white; /* Adjust text color for better readability */
   background-color: rgba(0, 3, 66, 0.6941176471); /* Fallback background color */
 }
-
-/* Ensure text is visible */
-.stay-connected p, .stay-connected a {
+.contact-container .stay-connected h2 {
+  margin-bottom: 20px;
+}
+.contact-container .stay-connected p, .contact-container .stay-connected a {
   color: white;
 }/*# sourceMappingURL=contact.css.map */

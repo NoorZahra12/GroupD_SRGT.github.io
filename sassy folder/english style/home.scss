@@ -6,8 +6,6 @@ main{
     padding: 20px;
     display: flex;
     flex-direction: column;
-
-
     #hero {
         display: flex;
         flex-wrap: wrap; // Make the items wrap when they exceed the width
@@ -16,16 +14,45 @@ main{
         justify-content: space-around;
         padding: 20px 0 50px 0;
         gap: 50px;
+    
         article {
             align-self: center;
-            width: 400px;            
+            width: 400px;       
             &:first-child{
                 flex: 1 0 200px;
                 width: 50%;
                 padding: 10px;
+                button{
+                    margin-left: auto;
+                    transition: border 0.3s ease;
+                    --c: #ff0000; /* the border color */
+                    --b: 2px;    /* the border thickness*/
+                    --g: 5px;     /* the gap on hover */
+                    padding: calc(var(--g) + var(--b));
+                    --_g: #0000 25%,var(--c) 0;
+                    background: 
+                        conic-gradient(from 180deg at top    var(--b) right var(--b),var(--_g))
+                        var(--_i,200%) 0  /200% var(--_i,var(--b))  no-repeat,
+                        conic-gradient(            at bottom var(--b) left  var(--b),var(--_g))
+                        0   var(--_i,200%)/var(--_i,var(--b)) 200%  no-repeat;
+                    background-color: rgb(217, 0, 0);
+                    transition: .3s, background-position .3s .3s;
+                    border: none;
+                    &:hover {
+                        background-color: white;
+                        color: black;
+                        cursor: pointer;
+                        --_i: 100%;
+                        transition: .3s, background-size .3s .3s;
+                    }
+                }
             }
             &:last-child{
                 width: 50%;
+                transition: all 0.5s ease;
+                &:hover{
+                    transform: scale(1.05);
+                }
             }
             #hero-title{
                 width: fit-content;
@@ -67,6 +94,7 @@ main{
             background-size: cover;
             object-fit: cover;
             padding: 20px;
+            transition: all 0.5s ease;
             &:nth-child(1){
                 background-image: url(../../images/dp.png);
             }
@@ -79,23 +107,61 @@ main{
             &:nth-child(4){
                 background-image: url(../../images/sp.png);
             }
-        }
-    }
-    #featured-products{
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-        gap: 10px;
-        padding: 20px;
-        article{
-            padding: 10px;
-            border: 1px solid black;
-            #priiice{
-                display: flex;
-                justify-content: space-between;
-                height: 35px;
+            &:hover{
+                transform: scale(1.05);
+            }
+            button{
+                margin-left: auto;
+                transition: border 0.3s ease;
+                --c: #ffffff; /* the border color */
+                --b: 2px;    /* the border thickness*/
+                --g: 5px;     /* the gap on hover */
+                padding: calc(var(--g) + var(--b));
+                --_g: #0000 25%,var(--c) 0;
+                background: 
+                    conic-gradient(from 180deg at top    var(--b) right var(--b),var(--_g))
+                    var(--_i,200%) 0  /200% var(--_i,var(--b))  no-repeat,
+                    conic-gradient(            at bottom var(--b) left  var(--b),var(--_g))
+                    0   var(--_i,200%)/var(--_i,var(--b)) 200%  no-repeat;
+                background-color: rgb(217, 0, 0);
+                transition: .3s, background-position .3s .3s;
+                border: none;
+                &:hover {
+                    cursor: pointer;
+                    --_i: 100%;
+                    transition: .3s, background-size .3s .3s;
+                }
             }
         }
     }
+
+    #featured-products{
+        display: flex;
+        flex-direction: row;
+        gap: 10px;
+        align-items: center;
+        overflow: scroll;
+        &::-webkit-scrollbar{
+            display: none;
+            }
+
+            article{
+                width: 200px;
+                padding: 10px;
+                border: 1px solid black;
+                img{
+                    width: 200px;
+                    height: 150px;
+                }
+                #priiice{
+                    display: flex;
+                    justify-content: space-between;
+                    width: 200px;
+                    height: 35px;
+                }
+            }
+        }
+    
     #why-choose-us {
         display: grid;
         grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -107,11 +173,51 @@ main{
             color: white;
         }
         article{
+            cursor:default;
             background-color: #f9f9f9;
-            border: 1px solid #ddd;
+            border: 1px solid gray;
             border-radius: 5px;
             padding: 20px;
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            transition: all 2s ease-in-out;
+            --border-width: 3px;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            border-radius: var(--border-width);
+            &:hover::after {
+                position: absolute;
+                content: "";
+                top: calc(-1 * var(--border-width));
+                left: calc(-1 * var(--border-width));
+                z-index: -1;
+                width: calc(100% + var(--border-width) * 2);
+                height: calc(100% + var(--border-width) * 2);
+                background: linear-gradient(
+                    60deg,
+                    hsl(224, 85%, 66%),
+                    hsl(269, 85%, 66%),
+                    hsl(314, 85%, 66%),
+                    hsl(359, 85%, 66%),
+                    hsl(44, 85%, 66%),
+                    hsl(89, 85%, 66%),
+                    hsl(134, 85%, 66%),
+                    hsl(179, 85%, 66%)
+                );
+                background-size: 300% 300%;
+                background-position: 0 50%;
+                border-radius: calc(2 * var(--border-width));
+                transition: background-position 0.3s ease-in-out; /* Smooth transition on hover */
+                animation: moveGradient 4s alternate infinite;
+            }
+            @keyframes moveGradient {
+                50% {
+                    background-position: 100% 50%;
+                }
+            }
+
         }
         h3 {
             margin-bottom: 10px;
@@ -156,5 +262,3 @@ main{
         }
     }
 }
-
-

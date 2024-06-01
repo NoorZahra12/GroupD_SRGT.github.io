@@ -125,6 +125,17 @@ footer div h3 {
 }
 footer div a {
   display: block;
+  text-decoration: none;
+  color: white;
+  margin: 0;
+  padding: 0;
+  transition: all 0.5s ease;
+}
+footer div a:hover {
+  cursor: pointer;
+  margin: 5px 0;
+  background-color: rgb(0, 0, 50);
+  padding: 5px;
 }
 footer div #img3links {
   width: 80%;
@@ -134,6 +145,11 @@ footer div #img3links {
 }
 footer div #img3links img {
   width: 20px;
+  transition: all 0.5s ease;
+}
+footer div #img3links img:hover {
+  cursor: pointer;
+  transform: scale(1.4);
 }
 
 .footercc {
@@ -219,8 +235,32 @@ main #hero article:first-child {
   width: 50%;
   padding: 10px;
 }
+main #hero article:first-child button {
+  margin-left: auto;
+  transition: border 0.3s ease;
+  --c: #ff0000; /* the border color */
+  --b: 2px; /* the border thickness*/
+  --g: 5px; /* the gap on hover */
+  padding: calc(var(--g) + var(--b));
+  --_g: #0000 25%,var(--c) 0;
+  background: conic-gradient(from 180deg at top var(--b) right var(--b), var(--_g)) var(--_i, 200%) 0/200% var(--_i, var(--b)) no-repeat, conic-gradient(at bottom var(--b) left var(--b), var(--_g)) 0 var(--_i, 200%)/var(--_i, var(--b)) 200% no-repeat;
+  background-color: rgb(217, 0, 0);
+  transition: 0.3s, background-position 0.3s 0.3s;
+  border: none;
+}
+main #hero article:first-child button:hover {
+  background-color: white;
+  color: black;
+  cursor: pointer;
+  --_i: 100%;
+  transition: 0.3s, background-size 0.3s 0.3s;
+}
 main #hero article:last-child {
   width: 50%;
+  transition: all 0.5s ease;
+}
+main #hero article:last-child:hover {
+  transform: scale(1.05);
 }
 main #hero article #hero-title {
   width: -moz-fit-content;
@@ -264,6 +304,7 @@ main #four-services article {
   -o-object-fit: cover;
      object-fit: cover;
   padding: 20px;
+  transition: all 0.5s ease;
 }
 main #four-services article:nth-child(1) {
   background-image: url(../../images/dp.png);
@@ -277,19 +318,50 @@ main #four-services article:nth-child(3) {
 main #four-services article:nth-child(4) {
   background-image: url(../../images/sp.png);
 }
+main #four-services article:hover {
+  transform: scale(1.05);
+}
+main #four-services article button {
+  margin-left: auto;
+  transition: border 0.3s ease;
+  --c: #ffffff; /* the border color */
+  --b: 2px; /* the border thickness*/
+  --g: 5px; /* the gap on hover */
+  padding: calc(var(--g) + var(--b));
+  --_g: #0000 25%,var(--c) 0;
+  background: conic-gradient(from 180deg at top var(--b) right var(--b), var(--_g)) var(--_i, 200%) 0/200% var(--_i, var(--b)) no-repeat, conic-gradient(at bottom var(--b) left var(--b), var(--_g)) 0 var(--_i, 200%)/var(--_i, var(--b)) 200% no-repeat;
+  background-color: rgb(217, 0, 0);
+  transition: 0.3s, background-position 0.3s 0.3s;
+  border: none;
+}
+main #four-services article button:hover {
+  cursor: pointer;
+  --_i: 100%;
+  transition: 0.3s, background-size 0.3s 0.3s;
+}
 main #featured-products {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  display: flex;
+  flex-direction: row;
   gap: 10px;
-  padding: 20px;
+  align-items: center;
+  overflow: scroll;
+}
+main #featured-products::-webkit-scrollbar {
+  display: none;
 }
 main #featured-products article {
+  width: 200px;
   padding: 10px;
   border: 1px solid black;
+}
+main #featured-products article img {
+  width: 200px;
+  height: 150px;
 }
 main #featured-products article #priiice {
   display: flex;
   justify-content: space-between;
+  width: 200px;
   height: 35px;
 }
 main #why-choose-us {
@@ -304,11 +376,40 @@ main #why-choose-us h2 {
   color: white;
 }
 main #why-choose-us article {
+  cursor: default;
   background-color: #f9f9f9;
-  border: 1px solid #ddd;
+  border: 1px solid gray;
   border-radius: 5px;
   padding: 20px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: all 2s ease-in-out;
+  --border-width: 3px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-radius: var(--border-width);
+}
+main #why-choose-us article:hover::after {
+  position: absolute;
+  content: "";
+  top: calc(-1 * var(--border-width));
+  left: calc(-1 * var(--border-width));
+  z-index: -1;
+  width: calc(100% + var(--border-width) * 2);
+  height: calc(100% + var(--border-width) * 2);
+  background: linear-gradient(60deg, hsl(224, 85%, 66%), hsl(269, 85%, 66%), hsl(314, 85%, 66%), hsl(359, 85%, 66%), hsl(44, 85%, 66%), hsl(89, 85%, 66%), hsl(134, 85%, 66%), hsl(179, 85%, 66%));
+  background-size: 300% 300%;
+  background-position: 0 50%;
+  border-radius: calc(2 * var(--border-width));
+  transition: background-position 0.3s ease-in-out; /* Smooth transition on hover */
+  animation: moveGradient 4s alternate infinite;
+}
+@keyframes moveGradient {
+  50% {
+    background-position: 100% 50%;
+  }
 }
 main #why-choose-us h3 {
   margin-bottom: 10px;

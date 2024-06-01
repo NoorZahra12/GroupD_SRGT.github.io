@@ -1,7 +1,5 @@
 @import '_general';
 
-
-
 .contact-container {
     display: flex;
     justify-content: space-between;
@@ -10,59 +8,65 @@
     margin: 20px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     flex-wrap: wrap;
-}
 
-.get-in-touch, .stay-connected {
-    width: 45%;
-}
+    .get-in-touch, .stay-connected {
+        width: 45%;
+    }
 
-.get-in-touch h2, .stay-connected h2 {
-    margin-bottom: 20px;
-}
+    .get-in-touch {
+        h2 {
+            margin-bottom: 20px;
+        }
 
-form div {
-    margin-bottom: 15px;
-}
+        form {
+            div {
+                margin-bottom: 15px;
+            }
 
-form label {
-    display: block;
-    margin-bottom: 5px;
-}
+            label {
+                display: block;
+                margin-bottom: 5px;
+            }
 
-form input, form textarea {
-    width: 100%;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-}
+            input, textarea {
+                width: 100%;
+                padding: 10px;
+                border: 1px solid #ccc;
+                border-radius: 5px;
+            }
 
-form button {
-    background-color: #d30000;
-    color: white;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s, color 0.3s;
-}
+            button {
+                background-color: #d30000;
+                color: white;
+                padding: 10px 20px;
+                border: none;
+                border-radius: 5px;
+                cursor: pointer;
+                transition: background-color 0.3s, color 0.3s;
 
-form button:hover {
-    background-color: black;
-    color: white;
-}
+                &:hover {
+                    background-color: black;
+                    color: white;
+                }
+            }
+        }
+    }
 
-/* Add background image to stay-connected */
-.stay-connected {
-    background-image: url('../../images/bg-stayconnected.png');
-    background-size: cover;
-    background-position: center;
-    padding: 20px;
-    border-radius: 10px;
-    color: white; /* Adjust text color for better readability */
-    background-color: #000342b1; /* Fallback background color */
-}
+    .stay-connected {
+        background-image: url('../../images/bg-stayconnected.png');
+        background-size: cover;
+        background-position: center;
+        padding: 20px;
+        border-radius: 10px;
+        color: white; /* Adjust text color for better readability */
+        background-color: #000342b1; /* Fallback background color */
 
-/* Ensure text is visible */
-.stay-connected p, .stay-connected a {
-    color: white;
+        h2 {
+            margin-bottom: 20px;
+        }
+
+        p, a {
+            color: white;
+        }
+    }
 }
