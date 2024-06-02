@@ -101,6 +101,8 @@ main {
   padding: 20px;
   display: flex;
   flex-direction: column;
+  background-color: white;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
 .footerbg {
@@ -217,7 +219,7 @@ main {
   max-width: 1300px;
   padding: 0;
   display: flex;
-  flex-direction: row;
+  flex-direction: row-reverse;
 }
 main aside {
   width: 30px; /* original width */
@@ -284,6 +286,7 @@ main section {
   flex: 1; /* Use remaining space */
   padding: 10px;
   overflow-y: scroll;
+  direction: rtl;
   height: 78vh;
   transition: width 0.3s ease;
 }

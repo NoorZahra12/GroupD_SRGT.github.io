@@ -2,15 +2,16 @@
 
 .contact-container {
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
+    flex-direction: row-reverse;
     padding: 20px;
-    background-color: white;
+    gap: 10px;
     margin: 20px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     flex-wrap: wrap;
 
     .get-in-touch, .stay-connected {
         width: 100%;
+        max-width: 400px;
         padding: 10px;
     }
 
@@ -70,30 +71,33 @@
         }
     }
 }
+
 section:last-child{
-    height: fit-content;
     display: flex;
-    justify-content: center;
     flex-direction: row-reverse;
+    justify-content: center;
     flex-wrap: wrap;
     gap: 10px;
     #location{
         display: flex;
         justify-content: center;
         width: 100%;
+        padding: 10px;
         max-width: 300px;
         flex-wrap: wrap;
         .texts{
             margin-bottom: 10px;
         }
         .maping{
-            width: 100%;
-            height: 100%;
+            width: 300px;
+            height: 200px;
             a {
                 display: block;
                 width: 100%;
                 height: 100%;
                 img {
+                    width: 100%;
+                    height: 100%;
                     object-fit: cover;
                     border-radius: 8px;
                 }

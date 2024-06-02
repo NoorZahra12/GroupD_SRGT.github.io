@@ -6,7 +6,7 @@ main {
     max-width: 1300px;
     padding: 0;
     display: flex;
-    flex-direction: row;
+    flex-direction: row-reverse;
 
     aside {
         width: 30px; /* original width */
@@ -79,6 +79,8 @@ main {
         flex: 1; /* Use remaining space */
         padding: 10px;
         overflow-y: scroll;
+        // moving scrollbar to the left side
+        direction: rtl;
         height: 78vh;
         transition: width 0.3s ease;
         &::-webkit-scrollbar {

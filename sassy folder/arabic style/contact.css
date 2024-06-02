@@ -101,6 +101,8 @@ main {
   padding: 20px;
   display: flex;
   flex-direction: column;
+  background-color: white;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
 .footerbg {
@@ -214,15 +216,16 @@ button:hover {
 }
 .contact-container {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
+  flex-direction: row-reverse;
   padding: 20px;
-  background-color: white;
+  gap: 10px;
   margin: 20px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   flex-wrap: wrap;
 }
 .contact-container .get-in-touch, .contact-container .stay-connected {
   width: 100%;
+  max-width: 400px;
   padding: 10px;
 }
 .contact-container .get-in-touch h2 {
@@ -271,11 +274,9 @@ button:hover {
 }
 
 section:last-child {
-  height: -moz-fit-content;
-  height: fit-content;
   display: flex;
-  justify-content: center;
   flex-direction: row-reverse;
+  justify-content: center;
   flex-wrap: wrap;
   gap: 10px;
 }
@@ -283,6 +284,7 @@ section:last-child #location {
   display: flex;
   justify-content: center;
   width: 100%;
+  padding: 10px;
   max-width: 300px;
   flex-wrap: wrap;
 }
@@ -290,8 +292,8 @@ section:last-child #location .texts {
   margin-bottom: 10px;
 }
 section:last-child #location .maping {
-  width: 100%;
-  height: 100%;
+  width: 300px;
+  height: 200px;
 }
 section:last-child #location .maping a {
   display: block;
@@ -299,6 +301,8 @@ section:last-child #location .maping a {
   height: 100%;
 }
 section:last-child #location .maping a img {
+  width: 100%;
+  height: 100%;
   -o-object-fit: cover;
      object-fit: cover;
   border-radius: 8px;
