@@ -1,0 +1,88 @@
+@import '_general';
+
+main{
+    margin: auto;
+    max-width: 1000px;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    h2{
+        text-align: center;
+    }
+    section{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 20px;
+        margin: auto;
+        padding: 10px;
+        max-width: 700px;
+
+        .cart_list{
+            border: 1px solid black;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 12px;
+            height: fit-content;
+            overflow-x: hidden;
+            overflow-y: scroll;
+            height: 60vh;
+            max-width: 700px;
+            transition: width 0.3s ease;
+            &::-webkit-scrollbar {
+                width: 12px;               /* width of the entire scrollbar */
+            }
+            &::-webkit-scrollbar-track {
+                background: white;
+            }
+            &::-webkit-scrollbar-thumb {
+                border: 1px solid black;
+                background-color: rgb(3, 0, 36);    /* color of the scroll thumb */
+                border-radius: 2px;       /* roundness of the scroll thumb */
+            }
+            .product-item{
+                cursor: default;
+                padding: 15px;
+                border: 1.5px solid #c1c1c1;
+                border-radius: 5px;
+                display: flex;
+                flex-direction: column;
+                transition: transform 0.5s ease;
+                &:hover{
+                    transform: scale(1.05);
+                }
+                p{
+                    margin: 7px;
+                }
+                button{
+                    margin-left: auto;
+                    background-color: red;
+                    border: none;
+                    &:hover {
+                        background-color: red;
+                        cursor: pointer;
+                    }
+                }
+                div{
+                    display: flex;
+                    flex-direction: row-reverse;
+                    margin: auto;
+                    gap: 5px;
+                    align-items: center;
+                    .plus_btn,.minus_btn{
+                        width: fit-content;
+                        height: fit-content;
+                        padding: 5px 10px;
+                        color: white;
+                        background-color: red;
+                    }
+                    .customer_quantity{
+                        border: 1px solid black;
+                        padding: 5px 15px;
+                    }
+                }
+            }
+        }
+
+    }
+}

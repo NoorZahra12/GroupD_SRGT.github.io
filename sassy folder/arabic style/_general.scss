@@ -4,6 +4,7 @@ body {
     word-break: break-word;
     padding: 0;
     max-width: 100%;
+    text-align: right;
     overflow-x: hidden;
 }
 
@@ -28,6 +29,7 @@ header{
                     margin: auto;
                     max-width: 300px;
                     min-width: 100px;
+                    overflow: hidden;
                     height: 25px;
                     display: flex;
                     input{
@@ -65,12 +67,11 @@ header{
                     #lang{
                         color: white;
                         text-decoration: none;
-                        font-size: large;
+                        font-size: small;
                     }
                 }
             }
         }
-
     /* Navigation bar styles */
     nav {
         background-color: rgb(10, 10, 10);
@@ -113,12 +114,11 @@ footer{
     display: grid;
     gap: 10px;
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-
     div{
         padding: 10px;
         h3{
             border-bottom: 1px solid white; width: 120px;
-            padding-left: -10px;
+            margin-left: auto;
         }
         a{
             // all the a are inline i want them to be in new line so im using display block for anchor tags in footer only

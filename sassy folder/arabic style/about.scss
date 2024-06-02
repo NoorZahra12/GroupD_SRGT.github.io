@@ -10,7 +10,7 @@ main{
     width: 100%;
     display: flex;
     flex-wrap: wrap;
-    flex-direction: row;
+    flex-direction: row-reverse;
     justify-content: space-around;
     align-items: center;
     padding: 20px 0;
@@ -30,6 +30,7 @@ main{
     width: 100%;
     display: flex;
     flex-wrap: wrap;
+    flex-direction: row-reverse;
     justify-content: center;
     align-items: center;
     gap: 10%;

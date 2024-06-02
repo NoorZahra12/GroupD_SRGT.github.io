@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Shah Rafiq General Trading</title>
+    <title>شاه رفيق للتجارة العامة</title>
     <!-- this is where i'll add the icon for the website -->
     <link rel="shortcut icon" href="../images/iconlogo.png"/>
     <!-- this is link to stylesheet -->
@@ -26,156 +26,153 @@
 
                 <!-- Sidebar toggle button -->
                 <div id="rightnav">
-                    <button id="Cart">Cart</button>
-                    <a id="lang" href="./arabicpages/home.html" style="font-size: small;">English</a>
+                    <button id="Cart" onclick="location.href='./arabicpages/cart.html';">عربة</button>
+                    <a id="lang" href="../index.html" style="font-size: small;">English</a>
                 </div>
             </div>
         </div>
         
         <nav>
-            <a href="./index.html" class="current-page">Home</a>
-            <a href="./engpages/about.html">About Us</a>
-            <a href="./engpages/product.html">Products</a>
-            <a href="./engpages/contact.html">Contact</a>
+            <a href="./home.html" class="current-page">بيت</a>
+            <a href="./about.html">عنّا</a>
+            <a href="./product.html">منتجات</a>
+            <a href="./contact.html">اتصال</a>
         </nav>
     </header>
-
+    <div class="marquee-container">
+        <img src="../images/brand list.png">
+        <img src="../images/brand list.png">
+        <img src="../images/brand list.png">
+    </div>
     <main>
-        <div class="marquee-container">
-            <img src="./images/brand_list.png" alt="" class="marquee-image">
-        </div>
+        <!-- <marquee behavior="sroll" direction="left"><img src="./images/brand list.png" alt="" style="height: 55px;"></marquee> -->
 
         <!-- Content Sections -->
         <section id="hero">
             <article>
-                <h1 id="hero-title">Quality First </h1>
-                <p id="hero-message">We trade and provide only the finest autoparts for your vehicle.</p>
-                <button class="explore-btn" onclick="location.href='./engpages/product.html';">Explore</button>
+                <h1 id="hero-title">الجودة أولاً</h1>
+                <p id="hero-message">نقوم بالتجارة وتوفير أفضل قطع الغيار لمركبتك فقط.</p>
+                <button class="explore-btn" onclick="location.href='./arabicpages/product.html';">Explore</button>
             </article>
             <article>
-                <img src="./images/heroimg.png" alt="Hero Image"/>
+                <img src="../images/heroimg.png" alt="Hero Image"/>
             </article>
         </section>
 
         <section id="welcome-section">
-            <div id="welcome2srgt">Welcome to SHAH RAFIQ General Trading Llc.</div>
-            <div id="onlinestore"><span style="color: red;">AUTO PARTS </span>ONLINE STORE</div>
-            <div id="magic3words">UAE designed. globally crafted. trustworthy.</div>
+            <div id="welcome2srgt">مرحبا بكم في شاه رفيق للتجارة العامة ذ.م.م.</div>
+            <div id="onlinestore"><span style="color: red;">قطع غيار السيارات </span>متجر على الانترنت</div>
+            <div id="magic3words">الإمارات صممت, صُنعت عالميًا, جدير بالثقة</div>
         </section>
 
         <section id="four-services">
             <article>
-                <h3>DIESEL PARTS</h3>
-                <p>Fuel injectors,  head rotors, fuel valves, and etc. </p>
-                <button class="shop_now_btn" onclick="location.href='./engpages/product.html';">SHOP NOW</button>
+                <h3>أجزاء الديزل</h3>
+                <p>حاقنات الوقود, دوارات الرأس, صمامات الوقود, وإلخ</p>
+                <button class="shop_now_btn">تسوق الآن</button>
             </article>
             <article>
-                <h3>ENGINE PARTS</h3>
-                <p>spark plugs, oil filters, belts, etc.</p>
-                <button class="shop-now-btn" onclick="location.href='./engpages/product.html';">SHOP NOW</button>
+                <h3>أجزاء المحرك</h3>
+                <p>شموع الإشعال, فلاتر الزيت, أحزمة, وإلخ</p>
+                <button class="shop-now-btn">تسوق الآن</button>
             </article>
             <article>
-                <h3>TEST EQUIPMENT</h3>
-                <p>Need our help? We’ll be glad to assist you.</p>
-                <button class="service-btn" onclick="gocontpage">GET SERVICE</button>
+                <h3>معدات الاختبار</h3>
+                <p>هل تحتاج إلى مساعدتنا؟ سنكون سعداء بمساعدتك</p>
+                <button class="service-btn">احصل على خدمة</button>
             </article>
             <article>
-                <h3>SPECIALITY PARTS</h3>
-                <p>marine ship parts, generators, tractors, etc.</p>
-                <button class="shop-now-btn" onclick="location.href='./engpages/product.html';">SHOP NOW</button>
+                <h3>أجزاء التخصص</h3>
+                <p>أجزاء السفينة, مولدات, الجرارات, وإلخ</p>
+                <button class="shop-now-btn">تسوق الآن</button>
             </article>
         </section>
-
+<!-- 
         <h2 style="margin: auto; margin-top: 100px;">FEATURED PRODUCTS</h2>
 
         <section id="featured-products">
-            <div class="leftarrow"><</div>
-            <div class="carousel">
-                <article>
-                    <img src="" alt="">
-                    <h4>Product name</h4>
-                    <h5>product code</h5>
-                    <div id="priiice">
-                        <p>price</p>
-                        <button class="add_to_cart">Add to Cart</button>
-                    </div>
-                </article>
-                <article>
-                    <img src="./images/featuredprod/" alt="">
-                    <h4>Product name</h4>
-                    <h5>product code</h5>
-                    <div id="priiice">
-                        <p>price</p>
-                        <button class="add_to_cart">Add to Cart</button>
-                    </div>
-                </article>
-                <article>
-                    <img src="./images/featuredprod/" alt="">
-                    <h4>Product name</h4>
-                    <h5>product code</h5>
-                    <div id="priiice">
-                        <p>price</p>
-                        <button class="add_to_cart">Add to Cart</button>
-                    </div>
-                </article>
-                <article>
-                    <img src="./images/featuredprod/" alt="">
-                    <h4>Product name</h4>
-                    <h5>product code</h5>
-                    <div id="priiice">
-                        <p>price</p>
-                        <button class="add_to_cart">Add to Cart</button>
-                    </div>
-                </article>
-            </div>
-            <div class="rightarrow">></div>
-        </section>
+            <article>
+                <img src="" alt="">
+                <h4>اسم المنتج</h4>
+                <h5>كود المنتج</h5>
+                <div id="priiice">
+                    <p>السعر</p>
+                    <button class="add_to_cart">أضف إلى السلة</button>
+                </div>
+            </article>
+            <article>
+                <img src="../images/featuredprod/" alt="">
+                <h4>اسم المنتج</h4> <h5>كود المنتج</h5>
+                <div id="priiice">
+                    <p>السعر</p>
+                    <button class="add_to_cart">أضف إلى السلة</button>
+                </div>
+            </article>
+            <article>
+                <img src="./images/featuredprod/" alt="">
+                <h4>اسم المنتج</h4>
+                <h5>كود المنتج</h5>
+                <div id="priiice">
+                    <p>السعر</p>
+                    <button class="add_to_cart">أضف إلى السلة</button>
+                </div>
+            </article>
+            <article>
+                <img src="./images/featuredprod/" alt="">
+                <h4>اسم المنتج</h4>
+                <h5>كود المنتج</h5>
+                <div id="priiice">
+                    <p>السعر</p>
+                    <button class="add_to_cart">أضف إلى السلة</button>
+                </div>
+            </article>
+        </section> -->
         <br>
-        <h2 style="margin: auto; margin-top: 50px;">WHY CHOOSE US</h2>
+        <h2 style="margin: auto; margin-top: 50px;">لماذا تختارنا</h2>
         <section id="why-choose-us">
             <article>
-                <h3>Quality Assurance</h3>
-                <p>We prioritize quality in every part we offer, ensuring our customers receive products that meet or exceed industry standards.</p>
+                <h3>تأكيد الجودة</h3>
+                <p>نقوم بتأهيل الجودة في كل جزء نقدمه، مما يضمن لزبائننا استلام منتجات تلبي أو تتجاوز المعايير الصناعية.</p>
             </article>
             <article>
-                <h3>Extensive Selection</h3>
-                <p>With a vast inventory of auto parts, we provide options for various makes and models, giving customers the flexibility to find the perfect fit for their vehicle.</p>
+                <h3>مجموعة واسعة من الخيارات</h3>
+                <p>مع وجود مخزون كبير من قطع غيار السيارات، فإننا نقدم خيارات لمختلف الماركات والموديلات، مما يمنح العملاء المرونة للعثور على الملاءمة المثالية لسيارتهم</p>
             </article>
             <article>
-                <h3>Competitive Pricing</h3>
-                <p>Our commitment to affordability means customers can access top-notch auto parts without breaking the bank, making maintenance and repairs more accessible.</p>
+                <h3>أسعار تنافسية</h3>
+                <p>التزامنا بالتكلفة الميسورة يعني أن الزبائن يمكنهم الوصول إلى قطع الغيار عالية الجودة دون كسر البنك، مما يجعل الصيانة والإصلاحات أكثر سهولة.</p>
             </article>
             <article>
-                <h3>Fast and Reliable Shipping</h3>
-                <p>We understand the importance of timely delivery, so we strive to ensure orders are processed swiftly and reach customers promptly, wherever they are.</p>
+                <h3>شحن سريع وموثوق</h3>
+                <p>نفهم أهمية التسليم في الوقت المناسب، لذلك نسعى لضمان معالجة الطلبات بسرعة وتسليمها إلى الزبائن في الوقت المناسب، أينما كانوا.</p>
             </article>
             <article>
-                <h3>Customer Satisfaction Guarantee</h3>
-                <p>We stand behind our products and services, offering a satisfaction guarantee to ensure our customers are completely happy with their purchases.</p>
+                <h3>ضمان رضا الزبون</h3>
+                <p>نقف خلف منتجاتنا وخدماتنا، ونقدم ضمان رضا الزبون لضمان أن زبائننا راضون تماماً عن مشترياتهم.</p>
             </article>
             <article>
-                <h3>Trust and Reliability</h3>
-                <p>With years of experience and a reputation for reliability, customers can trust us to deliver top-quality auto parts and exceptional service every time.</p>
+                <h3>الثقة والموثوقية</h3>
+                <p>مع سنوات من الخبرة وسمعة جيدة في الموثوقية، يمكن للزبائن أن يثقوا بنا لتقديم قطع الغيار عالية الجودة وخدمة استثنائية كل مرة.</p>
             </article>
         </section>
         <br>
-        <h2 style="margin: auto; margin-top:40px;margin-bottom:20px;">Frequent Asked Questions </h2>
+        <h2 style="margin: auto; margin-top:40px;margin-bottom:20px;">الأسئلة المتكررة</h2>
         <section id="faq">
             <details>
-                <summary>What are the working days of the shop?</summary>
-                <p>Our shop is open from Monday - Saturday.</p>
+                <summary>ما هي أيام عمل المحل؟</summary>
+                <p>محلنا مفتوح من الاثنين إلى السبت.</p>
             </details>
             <details>
-                <summary>When is the shop usually open?</summary>
-                <p>Our shop is open from 9:30 AM to 1:30 PM and from 4:00 AM to 9:30 PM.</p>
+                <summary>متى يكون المحل مفتوحا عادة؟</summary>
+                <p>محلنا مفتوح من 9:30 صباحا إلى 1:30 ظهرا ومن 4:00 مساء إلى 9:30 مساء.</p>
             </details>
             <details>
-                <summary>The item I ordered is out of stock, when will it be back in stock?</summary>
-                <p>Our products are ordered every month, so they will be back in stock next month. Sorry for the inconvenience.</p>
+                <summary>المنتج الذي طلبته خارج المخزون، متى سيعود إلى المخزون؟</summary>
+                <p>منتجاتنا يتم طلبها كل شهر، لذلك سيعود إلى المخزون الشهر القادم. نأسف لعدم الراحة.</p>
             </details>
             <details>
-                <summary>What is the warranty of the product?</summary>
-                <p>Every product has a different warranty, but generally, all our products have around 1 year <br> you can go to contact page and provide us with the information of your product and ask for it's warranty, and we will tell you the warranty of that specific product.</p>
+                <summary>ما هو ضمان المنتج؟</summary>
+                <p>كل منتج لديه ضمان مختلف، ولكن عموما، جميع منتجاتنا لديها حوالي سنة <br> يمكنك الذهاب إلى صفحة الاتصال وتقديم معلومات منتجك وتسأل عن ضمانه، وسنخبرك بضمان المنتج المحدد.</p>
             </details>
         </section>
     </main>
@@ -191,29 +188,29 @@
                 </div>
             </div>
             <div>
-                <h3>Quick Links</h3>
-                <a href="./engpages/about.html">About us</a>
-                <a href="./engpages/about.html">Contact us</a>
-                <a href="./engpages/about.html">Products</a>
-                <a href="./engpages/about.html">FAQs</a>
+                <h3>روابط سريعة</h3>
+                <a href="./arabicpages/about.html">معلومات عنا</a>
+                <a href="./arabicpages/about.html">تواصل معنا</a>
+                <a href="./arabicpages/about.html">منتجات</a>
+                <a href="./arabicpages/about.html">أسئلة مكررة</a>
             </div>
             <div>
-                <h3>Information</h3>
+                <h3>معلومات</h3>
                 <a href="./arabicpages/contact.html"></a>
-                <a href="./engpages/contact.html">Terms and Conditions</a>
-                <a href="./engpages/contact.html">Privacy Policy</a>
-                <a href="./engpages/contact.html">Refund Policy</a>
-                <a href="./engpages/contact.html">Test Equipment</a>
+                <a href="./arabicpages/contact.html">الأحكام و الشروط</a>
+                <a href="./arabicpages/contact.html">سياسة الخصوصية</a>
+                <a href="./arabicpages/contact.html">سياسة الاسترجاع</a>
+                <a href="./arabicpages/contact.html">معدات الاختبار</a>
             </div>
             <div>
-                <h3>Contact</h3>
-                <a href="./engpages/contact.html">contact us page</a>
-                <p>Email: <a href="mailto:shahrgt@eim.ae" target="_blank">shahrgt@eim.ae</a></p>
-                <p>Location: <a href="./engpages/contact.html#location">Deira, Dubai - U.A.E</a></p>
+                <h3>الاتصالات</h3>
+                <a href="./arabicpages/contact.html">صفحة تواصل معنا</a>
+                <p>البريد الإلكتروني: <a href="mailto:shahrgt@eim.ae" target="_blank">shahrgt@eim.ae</a></p>
+                <p>الموقع: <a href="./arabicpages/contact.html#location">ديرة، دبي - امارات العربية المتحدة</a></p>
             </div>
         
         </footer>
     </div>
-    <div class="footercc">Copyright &copy; 2024 Shah Rafiq General Trading LLC. All rights reserved.</div>
+    <div class="footercc">حقوق النشر محفوظة &copy; 2024 شاح رفيق جنرال تردينج ال ال سي. كل الحقوق محفوظة.</div>
 </body>
 </html>

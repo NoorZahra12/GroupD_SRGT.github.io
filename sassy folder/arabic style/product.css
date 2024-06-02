@@ -4,6 +4,7 @@ body {
   word-break: break-word;
   padding: 0;
   max-width: 100%;
+  text-align: right;
   overflow-x: hidden;
 }
 
@@ -33,8 +34,8 @@ header .uppernav .container #search-form {
   margin: auto;
   max-width: 300px;
   min-width: 100px;
-  height: 25px;
   overflow: hidden;
+  height: 25px;
   display: flex;
 }
 header .uppernav .container #search-form input {
@@ -71,7 +72,7 @@ header .uppernav .container #rightnav #Cart {
 header .uppernav .container #rightnav #lang {
   color: white;
   text-decoration: none;
-  font-size: large;
+  font-size: small;
 }
 header nav {
   background-color: rgb(10, 10, 10);
@@ -122,7 +123,7 @@ footer div {
 footer div h3 {
   border-bottom: 1px solid white;
   width: 120px;
-  padding-left: -10px;
+  margin-left: auto;
 }
 footer div a {
   display: block;
@@ -212,108 +213,145 @@ button:hover {
   }
 }
 main {
+  margin: auto;
+  max-width: 1300px;
+  padding: 0;
   display: flex;
-  flex-direction: column;
-  max-width: 900px;
-  gap: 30px;
-}
-
-.about {
-  width: 100%;
-  display: flex;
-  flex-wrap: wrap;
   flex-direction: row;
-  justify-content: space-around;
-  align-items: center;
-  padding: 20px 0;
-  gap: 30px;
 }
-.about div {
-  max-width: 450px;
-  padding: 10px;
-  flex: 1 0 200px;
-}
-.about img {
-  width: 40%;
-  max-width: 300px;
-  flex: 1 0 200px;
-}
-
-.history {
-  width: 100%;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  align-items: center;
-  gap: 10%;
-}
-.history img {
-  width: 40%;
-  max-width: 200px;
-  flex: 1 0 200px;
-}
-.history div {
-  width: 60%;
-  max-width: 450px;
-  padding: 30px;
-  flex: 1 0 200px;
-}
-
-.vision {
-  background: url(../../images/about/bg.png);
-  -o-object-fit: contain;
-     object-fit: contain;
-  height: 400px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  padding: 0 50px;
-  text-align: center;
+main aside {
+  width: 30px; /* original width */
   color: white;
-}
-.vision p {
-  font-size: large;
-}
-
-.brandlist {
+  padding: 5px;
+  background-color: #0C0F1D;
   overflow: hidden;
-  height: 300px;
-  text-align: center;
-}
-.brandlist .marquee-container {
-  margin: 10px 0;
-  overflow: hidden;
-  white-space: nowrap;
-  height: 50px;
+  transition: width 0.3s ease, background-color 0.3s ease;
   position: relative;
   display: flex;
-  flex-wrap: nowrap;
+  flex-direction: column;
+  align-items: flex-start;
 }
-.brandlist img {
-  height: 50px;
-  display: inline-block;
+main aside button {
+  background-color: red;
+  color: white;
+  width: 100%;
+  height: -moz-fit-content;
+  height: fit-content;
+  font-size: large;
 }
-.brandlist .ml img {
-  animation: marqueel 10s linear infinite;
+main aside #open-btn {
+  display: block;
+  margin: auto;
+  background-color: #0C0F1D;
+  margin-top: 0;
+  color: white;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
 }
-.brandlist .mr img {
-  animation: marqueer 10s linear infinite;
+main aside #open-btn:hover {
+  background-color: navy;
+}
+main aside #close-btn {
+  display: none;
+  width: 100%;
+  position: absolute;
+  padding-right: 15px;
+  background: none;
+  border: none;
+  text-align: right;
+  color: white;
+  font-size: 24px;
+  cursor: pointer;
+}
+main aside #close-btn:hover {
+  color: red;
+}
+main aside p, main aside ul {
+  display: none;
+}
+main aside.expanded {
+  width: 150px;
+}
+main aside.expanded #open-btn {
+  display: none;
+}
+main aside.expanded #close-btn, main aside.expanded p, main aside.expanded ul {
+  display: block;
+}
+main section {
+  flex: 1; /* Use remaining space */
+  padding: 10px;
+  overflow-y: scroll;
+  height: 78vh;
+  transition: width 0.3s ease;
+}
+main section::-webkit-scrollbar {
+  width: 12px; /* width of the entire scrollbar */
+}
+main section::-webkit-scrollbar-track {
+  background: white;
+}
+main section::-webkit-scrollbar-thumb {
+  border: 1px solid black;
+  background-color: rgb(3, 0, 36); /* color of the scroll thumb */
+  border-radius: 2px; /* roundness of the scroll thumb */
+}
+main aside.expanded ~ section {
+  flex: auto; /* Use remaining space */
+}
+main #brand-filter li {
+  margin: 5px;
+}
+main #brand-filter li:hover {
+  cursor: pointer;
+  color: #889cff;
 }
 
-@keyframes marqueel {
-  0% {
-    transform: translateX(0);
-  }
-  100% {
-    transform: translateX(-100%);
-  }
+/* Parent of cards */
+#products {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 12px;
+  height: -moz-fit-content;
+  height: fit-content;
 }
-@keyframes marqueer {
-  0% {
-    transform: translateX(-100%);
-  }
-  100% {
-    transform: translateX(0%);
-  }
-}/*# sourceMappingURL=about.css.map */
+
+/* Cards */
+#products div {
+  cursor: default;
+  padding: 15px;
+  border: 1.5px solid #c1c1c1;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.5s ease;
+}
+#products div:hover {
+  transform: scale(1.05);
+}
+
+#products div p {
+  margin: 7px;
+}
+
+#products div button {
+  margin-left: auto;
+  transition: border 0.3s ease;
+  --c: #000000; /* the border color */
+  --b: 2px; /* the border thickness*/
+  --g: 5px; /* the gap on hover */
+  padding: calc(var(--g) + var(--b));
+  --_g: #0000 25%,var(--c) 0;
+  background: conic-gradient(from 180deg at top var(--b) right var(--b), var(--_g)) var(--_i, 200%) 0/200% var(--_i, var(--b)) no-repeat, conic-gradient(at bottom var(--b) left var(--b), var(--_g)) 0 var(--_i, 200%)/var(--_i, var(--b)) 200% no-repeat;
+  background-color: rgb(217, 0, 0);
+  transition: 0.3s, background-position 0.3s 0.3s;
+  border: none;
+}
+#products div button:hover {
+  background-color: rgb(255, 0, 0);
+  cursor: pointer;
+  --_i: 100%;
+  transition: 0.3s, background-size 0.3s 0.3s;
+}/*# sourceMappingURL=product.css.map */

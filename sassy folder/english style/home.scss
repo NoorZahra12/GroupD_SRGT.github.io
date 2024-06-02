@@ -1,14 +1,38 @@
 @import '_general';
 
+.marquee-container{
+    // margin-top: 0;
+    position: relative;
+    width: 100vw;
+    overflow-x: scroll;
+    height: 50px;
+    white-space: nowrap;
+    display: flex;
+    flex-wrap: nowrap;
+    &::-webkit-scrollbar{
+        display: none;
+    }
+    img{
+        height: 50px;
+        display: inline-block;
+        animation: marquee 10s linear infinite;
+    }
+}
+/* Keyframe animation */
+@keyframes marquee {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-100%); }
+}
 main{
     margin: auto;
     max-width: 1000px;
     padding: 20px;
     display: flex;
     flex-direction: column;
+    
     #hero {
         display: flex;
-        flex-wrap: wrap; // Make the items wrap when they exceed the width
+        flex-wrap: wrap;
         width: 100%;
         flex-direction: row;
         justify-content: space-around;
@@ -85,7 +109,7 @@ main{
     }
     #four-services{
         display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
+        grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
         gap: 20px;
         article{
             background-color: rgba(0, 0, 0, 0.50);
@@ -144,8 +168,8 @@ main{
         &::-webkit-scrollbar{
             display: none;
             }
-
             article{
+                background-color: #f9f9f9;
                 width: 200px;
                 padding: 10px;
                 border: 1px solid black;
@@ -161,6 +185,7 @@ main{
                 }
             }
         }
+
     
     #why-choose-us {
         display: grid;

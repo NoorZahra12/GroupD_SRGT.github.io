@@ -34,6 +34,7 @@ header .uppernav .container #search-form {
   max-width: 300px;
   min-width: 100px;
   height: 25px;
+  overflow: hidden;
   display: flex;
 }
 header .uppernav .container #search-form input {
@@ -210,6 +211,33 @@ button:hover {
     grid-area: rightnav;
   }
 }
+.marquee-container {
+  position: relative;
+  width: 100vw;
+  overflow-x: scroll;
+  height: 50px;
+  white-space: nowrap;
+  display: flex;
+  flex-wrap: nowrap;
+}
+.marquee-container::-webkit-scrollbar {
+  display: none;
+}
+.marquee-container img {
+  height: 50px;
+  display: inline-block;
+  animation: marquee 10s linear infinite;
+}
+
+/* Keyframe animation */
+@keyframes marquee {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
 main {
   margin: auto;
   max-width: 1000px;
@@ -293,7 +321,7 @@ main #welcome-section #magic3words {
 }
 main #four-services {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
   gap: 20px;
 }
 main #four-services article {
@@ -350,6 +378,7 @@ main #featured-products::-webkit-scrollbar {
   display: none;
 }
 main #featured-products article {
+  background-color: #f9f9f9;
   width: 200px;
   padding: 10px;
   border: 1px solid black;

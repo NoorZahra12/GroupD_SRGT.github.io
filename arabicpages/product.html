@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Products</title>
+    <link rel="stylesheet" href="../sassy folder/arabic style/product.css">
+    <link rel="shortcut icon" href="../images/iconlogo.png"/>
+</head>
+<body>
+    <header>
+        <div class="uppernav">
+            <div class="container">
+                <!-- Logo -->
+                <div class="logo">
+                    <img src="../images/logo.png" alt="SRGT Logo">
+                </div>
+
+                <!-- Search Bar -->
+                <!-- <form id="search-form">
+                    <input type="text" placeholder="Search.." name="search">
+                    <button type="submit"><img src="./images/searchicon.png" alt="Search icon"></button>
+                </form> -->
+
+                <!-- Sidebar toggle button -->
+                <div id="rightnav">
+                    <button id="Cart" onclick="location.href='./arabicpages/cart.html';">عربة</button>
+                    <a id="lang" href="../engpages/product.html" style="font-size: small;">English</a>
+                </div>
+            </div>
+        </div>
+        
+        <nav>
+            <a href="./home.html">بيت</a>
+            <a href="./about.html">عنّا</a>
+            <a href="./product.html" class="current-page">منتجات</a>
+            <a href="./contact.html">اتصال</a>
+        </nav>
+    </header>
+    
+    <main>
+        <aside id="sidebar">
+            <button id="open-btn">☰</button>
+            <button id="close-btn">×</button>
+            <p style="margin-top: 40px;">Currency: <select id="currency-select">
+                    <!-- default currency -->
+                    <option value="AED">AED</option>
+                    <!-- english -->
+                    <option value="USD">USD</option>
+                    <!-- arab -->
+                    <option value="SAR">SAR</option>
+                    <option value="EGP">EGP</option>
+                    <!-- europe -->
+                    <option value="EUR">EUR</option>
+                    <!-- asian -->
+                    <option value="PKR">PKR</option>
+                    <option value="INR">INR</option>
+                </select>
+            </p>
+            <p>Filter by Brand</p>
+            <ul id="brand-filter"></ul>
+        </aside>
+        <section>
+            <article id="products"></article>
+        </section>
+    </main>
+    <div class="footerbg">
+        <footer>
+            <div>
+                <img src="../images/logofooter.png" alt="logo" width="200px">
+                <p></p>
+                <div id="img3links">
+                    <img src="../images/emailicon.png" alt="email" onclick="location.href='mailto:shahrgt@eim.ae';" target="_blank">
+                    <img src="../images/facebookicon.png" alt="fb" onclick="location.href='https://www.facebook.com/autopartsdxb/';" target="_blank">
+                    <img src="../images/whatsappicon.png" alt="whatsapp" onclick="location.href='tel:+971527171620';" target="_blank">
+                </div>
+            </div>
+            <div>
+                <h3>روابط سريعة</h3>
+                <a href="./arabicpages/about.html">معلومات عنا</a>
+                <a href="./arabicpages/about.html">تواصل معنا</a>
+                <a href="./arabicpages/about.html">منتجات</a>
+                <a href="./arabicpages/about.html">أسئلة مكررة</a>
+            </div>
+            <div>
+                <h3>معلومات</h3>
+                <a href="./arabicpages/contact.html"></a>
+                <a href="./arabicpages/contact.html">الأحكام و الشروط</a>
+                <a href="./arabicpages/contact.html">سياسة الخصوصية</a>
+                <a href="./arabicpages/contact.html">سياسة الاسترجاع</a>
+                <a href="./arabicpages/contact.html">معدات الاختبار</a>
+            </div>
+            <div>
+                <h3>الاتصالات</h3>
+                <a href="./arabicpages/contact.html">صفحة تواصل معنا</a>
+                <p>البريد الإلكتروني: <a href="mailto:shahrgt@eim.ae" target="_blank">shahrgt@eim.ae</a></p>
+                <p>الموقع: <a href="./arabicpages/contact.html#location">ديرة، دبي - امارات العربية المتحدة</a></p>
+            </div>
+        
+        </footer>
+    </div>
+    <div class="footercc">حقوق النشر محفوظة &copy; 2024 شاح رفيق جنرال تردينج ال ال سي. كل الحقوق محفوظة.</div>
+    <script src="../programming/productitems_arb.js"></script>
+</body>    
+</html>

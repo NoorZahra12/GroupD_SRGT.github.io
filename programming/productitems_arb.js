@@ -37,13 +37,13 @@ document.addEventListener('DOMContentLoaded', function () {
 
             const productHTML = `
                 <div class="product-item" data-brand="${item.brand}">
-                    <p id="group">Category: ${item.group}</p>
-                    <p id="name">Name: ${item.itemName}</p>
-                    <p id="code">Code: ${item.itemCode}</p>
-                    <p id="brand">Brand: ${item.brand}</p>
-                    <p id="stock">Stock: ${item.quantity}</p>
-                    <p id="price">Price: ${convertedPrice} ${userCurrency}</p>
-                    <button class="add_btn" data-index="${index}">Add to Cart</button>
+                    <p id="group">الفئة: ${item.group}</p>
+                    <p id="name">الاسم: ${item.itemName}</p>
+                    <p id="code">الكود: ${item.itemCode}</p>
+                    <p id="brand">العلامة التجارية: ${item.brand}</p>
+                    <p id="stock">المخزون: ${item.quantity}</p>
+                    <p id="price">السعر: ${convertedPrice} ${userCurrency}</p>
+                    <button class="add_btn" data-index="${index}">أضف إلى السلة</button>
                 </div>
             `;
 
@@ -67,7 +67,7 @@ document.addEventListener('DOMContentLoaded', function () {
         brands.sort((a, b) => a.localeCompare(b));
 
         const allLi = document.createElement('li');
-        allLi.textContent = 'All';
+        allLi.textContent = 'الكل';
         allLi.addEventListener('click', () => filterByBrand('All'));
         brandFilter.appendChild(allLi);
 
@@ -123,25 +123,25 @@ document.addEventListener('DOMContentLoaded', function () {
 
             const cartItemHTML = `
                 <div class="product-item" data-brand="${item.brand}">
-                    <p id="group">Category: ${item.group}</p>
-                    <p id="name">Name: ${item.itemName}</p>
-                    <p id="code">Code: ${item.itemCode}</p>
-                    <p id="brand">Brand: ${item.brand}</p>
-                    <p id="stock">Stock: ${item.quantity}</p>
+                    <p id="group">الفئة: ${item.group}</p>
+                    <p id="name">الاسم: ${item.itemName}</p>
+                    <p id="code">الكود: ${item.itemCode}</p>
+                    <p id="brand">العلامة التجارية: ${item.brand}</p>
+                    <p id="stock">المخزون: ${item.quantity}</p>
                     <div>
                         <div class="plus_btn" data-index="${index}" data-action="increment">+</div>
                         <div class="customer_quantity">${item.quantity}</div>
                         <div class="minus_btn" data-index="${index}" data-action="decrement">-</div>
                     </div>
-                    <p id="price">Price: ${convertedPrice} ${userCurrency}</p>
-                    <button data-index="${index}" data-action="remove">Remove from cart</button>
+                    <p id="price">السعر: ${convertedPrice} ${userCurrency}</p>
+                    <button data-index="${index}" data-action="remove">إزالة من السلة</button>
                 </div>
             `;
 
             cartList.innerHTML += cartItemHTML;
         });
 
-        totalPriceElement.textContent = `Total Price: ${totalPrice.toFixed(2)} ${userCurrency}`;
+        totalPriceElement.textContent = `السعر الإجمالي: ${totalPrice.toFixed(2)} ${userCurrency}`;
 
         // Attach event listeners for cart buttons
         cartList.querySelectorAll('.plus_btn').forEach(button => {

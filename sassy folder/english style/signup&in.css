@@ -35,6 +35,7 @@ header .uppernav .container #search-form {
   max-width: 300px;
   min-width: 100px;
   height: 25px;
+  overflow: hidden;
   display: flex;
 }
 header .uppernav .container #search-form input {
